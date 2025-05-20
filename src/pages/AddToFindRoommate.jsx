@@ -12,17 +12,17 @@ const AddToFindRoommate = () => {
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-10 w-full max-w-5xl">
                     <div>
                         <legend className="fieldset-legend mb-1">Title</legend>
-                        <input type="text" className="input input-bordered w-full" placeholder="Add Title" />
+                        <input type="text" name="title" className="input input-bordered w-full"  placeholder="Add Title" />
                     </div>
 
                     <div>
                         <legend className="fieldset-legend mb-1">Location</legend>
-                        <input type="text" className="input input-bordered w-full" placeholder="Add Location" />
+                        <input type="text" name="location" className="input input-bordered w-full" placeholder="Add Location" />
                     </div>
 
                     <div>
                         <legend className="fieldset-legend mb-1">Rent Amount</legend>
-                        <input type="text" className="input input-bordered w-full" placeholder="Add Rent Amount" />
+                        <input type="text" name="rent-amount" className="input input-bordered w-full" placeholder="Add Rent Amount" />
                     </div>
 
                     <div>
@@ -59,7 +59,7 @@ const AddToFindRoommate = () => {
 
                     <div>
                         <legend className="fieldset-legend mb-1">Contact Info</legend>
-                        <input type="text" className="input input-bordered w-full" placeholder="Add Your Contact Info" />
+                        <input type="text" name="contactinfo" className="input input-bordered w-full" placeholder="Add Your Contact Info" />
                     </div>
 
                     <div>
@@ -73,16 +73,16 @@ const AddToFindRoommate = () => {
 
                     <div>
                         <legend className="fieldset-legend mb-1">Email</legend>
-                        <input type="email" className="input input-bordered w-full" placeholder="Add Email" />
+                        <input type="email" name="email" className="input input-bordered w-full" placeholder="Add Email" />
                     </div>
 
                     <div>
                         <legend className="fieldset-legend mb-1">User Name</legend>
-                        <input type="text" className="input input-bordered w-full" placeholder="Add User Name" />
+                        <input type="text" name="name" className="input input-bordered w-full"  placeholder="Add User Name" />
                     </div>
                 </form>
 
-                <button className="btn btn-neutral mt-6 w-11/12 md:w-5/6 max-w-5xl px-6">
+                <button className="btn btn-neutral mt-6 w-11/12 md:w-9/12 max-w-5xl px-6">
                     Add To Find Roommate
                 </button>
             </div>

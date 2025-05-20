@@ -1,6 +1,7 @@
 import Button from '../components/shared/Button'
 import Slider from '../components/slider/Slider'
 import { Link } from 'react-router'
+import ReactTypeTypeWriter from './reactAnimations/ReactTypeTypeWriter.jsx'
 
 const Hero = () => {
     return (
@@ -8,6 +9,7 @@ const Hero = () => {
             <div className='container mx-auto px-4 py-10 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10'>
                 {/* Text Content */}
                 <div className='w-full md:w-1/2 text-center md:text-left space-y-4'>
+                    <ReactTypeTypeWriter></ReactTypeTypeWriter>
                     <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white'>
                         Find the Right Roommate,<br /> Live Better Together
                     </h1>
