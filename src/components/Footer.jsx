@@ -9,7 +9,10 @@ const Footer = () => {
                 {/* EventExplorer Info Section */}
                 <nav className="flex flex-col items-center md:items-start md:w-1/4  md:-mt-3">
                     <NavLink className="text-3xl italic font-bold text-green-700" to="/">
-                        RoomMates
+                        <div>
+                            <h1>Find</h1>
+                            <img src="" alt="" />
+                        </div>
                     </NavLink>
                     <p className="w-3/4 md:w-48 mt-4 md:mt-0 text-center md:text-left">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt pariatur impedit amet eligendi vero magnam recusandae maiores voluptatum fuga natus!

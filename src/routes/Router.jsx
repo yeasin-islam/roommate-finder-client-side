@@ -11,6 +11,7 @@ import BrowseListing from "../pages/BrowseListing";
 import MyListing from "../pages/MyListing";
 import UpdateListing from "../pages/UpdateListing";
 import DetailsPage from "../pages/DetailsPage";
+import Profile from "../pages/Profile";
 
 
 const Router = createBrowserRouter([
@@ -34,7 +35,10 @@ const Router = createBrowserRouter([
                 path: '/singup',
                 element: <SingUp />,
             },
-
+            {
+                path: '/profile',
+                element: <Profile />,
+            },
             {
                 path: '/browse-listings',
                 element: <BrowseListing />,
@@ -59,6 +63,7 @@ const Router = createBrowserRouter([
                 path: '/details/:id',
                 element: <DetailsPage />,
             },
+
         ]
     },
 ]);
