@@ -8,14 +8,16 @@ const Footer = () => {
             <footer className="md:flex space-y-8 md:space-y-0 justify-between py-10 container mx-auto gap-4">
                 {/* EventExplorer Info Section */}
                 <nav className="flex flex-col items-center md:items-start md:w-1/4  md:-mt-3">
-                    <NavLink className="text-3xl italic font-bold text-green-700" to="/">
-                        <div>
-                            <h1>Find</h1>
-                            <img src="" alt="" />
+                    <NavLink to="/">
+                        <div className="flex justify-start items-center">
+                            <p className="text-4xl font-bold text-[#3683af]">Find</p>
+
+                            <img className="h-9 w-20" src="/icon.png" alt="RoomMates" />
+
                         </div>
                     </NavLink>
                     <p className="w-3/4 md:w-48 mt-4 md:mt-0 text-center md:text-left">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt pariatur impedit amet eligendi vero magnam recusandae maiores voluptatum fuga natus!
+                       Find RoomMates helps you meet like-minded people and share homes that truly feel like home.
                     </p>
                 </nav>
 

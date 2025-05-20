@@ -10,12 +10,10 @@ const Navbar = () => {
         <div className="fontStyle bg-gray-300">
             <div className="container mx-auto navbar">
                 <div className="navbar-start">
-                    <NavLink className="text-4xl font-bold text-[#3683af]" to="/">
+                    <NavLink to="/">
                         <div className="flex justify-start items-center">
-                            <p>Find</p>
-
-                            <img className="h-9 w-20" src="/public/icon.png" alt="" />
-
+                            <p className="text-4xl font-bold text-[#3683af]">Find</p>
+                            <img className="h-9 w-20" src="/icon.png" alt="RoomMates" />
                         </div>
                     </NavLink>
                 </div>
