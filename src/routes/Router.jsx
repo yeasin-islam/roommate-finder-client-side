@@ -6,7 +6,7 @@ import Login from "../pages/Login";
 import ErrorPage from "../pages/ErrorPage";
 import LoadingFallback from "../components/shared/LoadingFallback";
 import SingUp from "../pages/SingUp";
-import AddRoommate from "../pages/AddRoommate";
+import AddToFindRoommate from "../pages/AddToFindRoommate";
 import BrowseListing from "../pages/BrowseListing";
 import MyListing from "../pages/MyListing";
 import UpdateListing from "../pages/UpdateListing";
@@ -34,15 +34,16 @@ const Router = createBrowserRouter([
                 path: '/singup',
                 element: <SingUp />,
             },
+
             {
-                path: '/add-roommate',
-                element: <AddRoommate />,
+                path: '/browse-listings',
+                element: <BrowseListing />,
                 // loader: () => fetch('../events.json'),
                 hydrateFallbackElement: <LoadingFallback />,
             },
             {
-                path: '/browse-listings',
-                element: <BrowseListing />,
+                path: '/addtofind-roommate',
+                element: <AddToFindRoommate />,
                 // loader: () => fetch('../events.json'),
                 hydrateFallbackElement: <LoadingFallback />,
             },

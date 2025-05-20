@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddRoommate = () => {
+const AddToFindRoommate = () => {
     return (
         <div>
             <p>Add Roommate</p>
@@ -8,4 +8,4 @@ const AddRoommate = () => {
     );
 };
 
-export default AddRoommate;
+export default AddToFindRoommate;
