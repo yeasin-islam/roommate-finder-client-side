@@ -1,112 +1,68 @@
 import { FaFacebook, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { Link, NavLink } from "react-router";
+import { NavLink } from "react-router";
 
 const Footer = () => {
     return (
-        <div className="fontStyle bg-orange-300">
-            <footer className="md:flex space-y-8 md:space-y-0 justify-between py-10 container mx-auto gap-4">
-                {/* EventExplorer Info Section */}
-                <nav className="flex flex-col items-center md:items-start md:w-1/4  md:-mt-3">
-                    <NavLink to="/">
-                        <div className="flex justify-start items-center">
-                            <p className="text-4xl font-bold text-[#3683af]">Find</p>
-
-                            <img className="h-9 w-20" src="/icon.png" alt="RoomMates" />
-
-                        </div>
+        <div className="bg-orange-300 text-gray-800 fontStyle">
+            <footer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-10 container mx-auto px-4">
+                {/* Logo & Description */}
+                <div className="flex flex-col items-center sm:items-start">
+                    <NavLink to="/" className="flex items-center">
+                        <p className="text-4xl font-bold text-[#3683af]">Find</p>
+                        <img className="h-9 w-20" src="/icon.png" alt="RoomMates" />
                     </NavLink>
-                    <p className="w-3/4 md:w-48 mt-4 md:mt-0 text-center md:text-left">
-                       Find RoomMates helps you meet like-minded people and share homes that truly feel like home.
+                    <p className="mt-4 text-center sm:text-left max-w-xs">
+                        Find RoomMates helps you meet like-minded people and share homes that truly feel like home.
                     </p>
-                </nav>
+                </div>
 
-                {/* Browse Section */}
-                <nav className="flex flex-col items-center md:items-start md:w-1/4 mt-8 md:mt-0">
-                    <h6 className="footer-title">Browse</h6>
-                    <ul className="flex md:flex-col gap-2">
-                        <li>
-                            <NavLink
-                                className={({ isActive }) => (isActive ? "text-indigo-500 " : "")}
-                                to="/"
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                className={({ isActive }) => (isActive ? "text-indigo-500" : "")}
-                                to="/browse-listings"
-                            >
-                                Browse listings
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                className={({ isActive }) => (isActive ? "text-indigo-500" : "")}
-                                to="/addtofind-roommate"
-                            >
-                                Add to Find Roommate
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                className={({ isActive }) => (isActive ? "text-indigo-500" : "")}
-                                to="/my-listing"
-                            >
-                                My Listing
-                            </NavLink>
-                        </li>
+                {/* Browse Links */}
+                <div className="flex flex-col items-center sm:items-start">
+                    <h6 className="footer-title font-bold mb-2">Browse</h6>
+                    <ul className="space-y-2 text-center sm:text-left">
+                        <li><NavLink to="/" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Home</NavLink></li>
+                        <li><NavLink to="/browse-listings" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Browse Listings</NavLink></li>
+                        <li><NavLink to="/addtofind-roommate" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Add to Find Roommate</NavLink></li>
+                        <li><NavLink to="/my-listing" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>My Listing</NavLink></li>
                     </ul>
-                </nav>
+                </div>
 
-                {/* Legal Section */}
-                <nav className="flex flex-col items-center md:items-start md:w-1/4 mt-8 md:mt-0">
-                    <h6 className="footer-title">Legal</h6>
-                    <div className="space-x-2 md:flex-col lg:flex gap-2">
-                        <a className="link link-hover">Terms of use</a>
-                        <a className="link link-hover">Privacy policy</a>
-                        <a className="link link-hover">Cookie policy</a>
-                    </div>
-                    {/* Social Icons */}
-                    <p className="footer-title mt-3">Follow Us</p>
-                    <div className="flex justify-start text-xl gap-3 md:text-left mt-2">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                            <FaFacebook />
-                        </a>
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                            <FaSquareXTwitter />
-                        </a>
-                        <a href="https://www.x.com/" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin />
-                        </a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-                            <FaYoutube />
-                        </a>
-                    </div>
-                </nav>
+                {/* Legal & Social */}
+                <div className="flex flex-col items-center sm:items-start">
+                    <h6 className="footer-title font-bold mb-2">Legal</h6>
+                    <ul className="space-y-2 text-center sm:text-left">
+                        <li><a className="link link-hover">Terms of Use</a></li>
+                        <li><a className="link link-hover">Privacy Policy</a></li>
+                        <li><a className="link link-hover">Cookie Policy</a></li>
+                    </ul>
 
-                {/* Newsletter Section */}
-                <form className="md:w-1/4 flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-0 ">
-                    <h6 className="footer-title">Newsletter</h6>
-                    <fieldset className="w-full">
-                        <label>Enter your email address</label>
-                        <div className="join flex flex-col sm:flex-row sm:space-x-2">
-                            <input
-                                type="text"
-                                placeholder="username@site.com"
-                                className="input input-bordered join-item w-full"
-                            />
-                            <button className="btn btn-primary join-item mt-2 sm:mt-0 sm:w-auto">
-                                Subscribe
-                            </button>
-                        </div>
-                    </fieldset>
-                </form>
+                    <h6 className="footer-title font-bold mt-4">Follow Us</h6>
+                    <div className="flex gap-4 text-2xl mt-2 justify-center sm:justify-start">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                        <a href="https://www.x.com/" target="_blank" rel="noopener noreferrer"><FaSquareXTwitter /></a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+                    </div>
+                </div>
+
+                {/* Newsletter */}
+                <div className="flex flex-col items-center sm:items-start">
+                    <h6 className="footer-title font-bold mb-2">Newsletter</h6>
+                    <label className="mb-2">Enter your email address</label>
+                    <div className="flex flex-col sm:flex-row w-full gap-2">
+                        <input
+                            type="email"
+                            placeholder="username@site.com"
+                            className="input input-bordered w-full"
+                        />
+                        <button className="btn btn-primary w-full sm:w-auto">Subscribe</button>
+                    </div>
+                </div>
             </footer>
-            <p className="text-center py-5">
-                Copyright © {new Date().getFullYear()} – All rights reserved by
-                EventeXplorer.bd
+
+            <p className="text-center py-4 text-sm">
+                © {new Date().getFullYear()} – All rights reserved by Find RoomMate Team
             </p>
         </div>
     );

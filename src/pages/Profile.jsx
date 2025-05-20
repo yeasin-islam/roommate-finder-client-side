@@ -31,7 +31,7 @@ const Profile = () => {
       <div className="fontStyle max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg text-center">
 
         <Helmet>
-          <title>Profile | EventeXplorer</title>
+          <title>Profile | Find RoomMates</title>
         </Helmet>
         <h1 className="text-2xl font-bold mb-4">Profile</h1>
 

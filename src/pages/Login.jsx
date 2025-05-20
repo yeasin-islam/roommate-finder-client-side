@@ -43,7 +43,7 @@ const Login = () => {
     <div className=" fontStyle bg-base-200 p-10 rounded-xl shadow-2xl flex items-center justify-center min-h-screen">
       <Helmet>
         <title>
-          Login | EventeXplorer
+          Login | Find RoomMates
         </title>
       </Helmet>
       <div className="w-full max-w-sm">
