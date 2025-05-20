@@ -10,7 +10,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { auth } from "../firebase.config";
+import { auth } from "../firebase.config.js";
 import { AuthContext } from "./AuthContext";
 
 const AuthProvider = ({ children }) => {
@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
-  
+
   // Password reset function
   const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email)
@@ -94,7 +94,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     signInWithGoogle,
     signInWithGithub,
-    resetPassword, // <-- Added here
+    resetPassword,
     updateUserProfile,
     logOut,
   };

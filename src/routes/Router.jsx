@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Home from "../pages/Home";
 import MainLayout from "../Layout/MainLayout";
 import Login from "../pages/Login";
-// import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import LoadingFallback from "../components/shared/LoadingFallback";
 import SingUp from "../pages/SingUp";
@@ -37,7 +37,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <Profile />,
+                element: <PrivateRoute><Profile /></PrivateRoute> ,
             },
             {
                 path: '/browse-listings',
