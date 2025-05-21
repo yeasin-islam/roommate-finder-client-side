@@ -22,9 +22,9 @@ const Footer = () => {
                     <h6 className="footer-title font-bold mb-2">Browse</h6>
                     <ul className="space-y-2 text-center sm:text-left">
                         <li><NavLink to="/" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Home</NavLink></li>
-                        <li><NavLink to="/browse-listings" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Browse Listings</NavLink></li>
+                        <li><NavLink to="/browse-listings" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Browse All Post</NavLink></li>
                         <li><NavLink to="/addtofind-roommate" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Add to Find Roommate</NavLink></li>
-                        <li><NavLink to="/my-listing" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>My Listing</NavLink></li>
+                        <li><NavLink to="/my-listing" className={({ isActive }) => isActive ? "text-indigo-500" : ""}>Your Post & Profile</NavLink></li>
                     </ul>
                 </div>
 

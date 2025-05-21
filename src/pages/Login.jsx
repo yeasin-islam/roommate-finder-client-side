@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 import { FaGoogle, FaGithub, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -22,21 +22,43 @@ const Login = () => {
     e.preventDefault();
     signIn(form.email, form.password)
       .then(() => {
-        toast.success("Logged in successfully!");
+        Swal.fire({
+          icon: "success",
+          title: "Login Succesfuly",
+          showConfirmButton: false,
+          timer: 1500
+        });
         navigate(from);
       })
       .catch(err => {
-        toast.error(err.message);
+        Swal.fire({
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
   };
 
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then(() => {
-        toast.success("Logged in with Google!");
+        Swal.fire({
+          icon: "success",
+          title: "Login with Google!",
+          showConfirmButton: false,
+          timer: 1500
+        });
         navigate(from);
       })
-      .catch(err => toast.error(err.message));
+      .catch(err => {
+        Swal.fire({
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      });
   };
 
   return (

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase.config';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateListing = () => {
     const {
@@ -18,7 +19,7 @@ const UpdateListing = () => {
         lifestyle,
     } = useLoaderData();
 
-
+    const navigate = useNavigate();
     const [user, setUser] = useState({ email: '', displayName: '' });
 
     useEffect(() => {
@@ -59,6 +60,7 @@ const UpdateListing = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    navigate("/my-listing");
                 }
                 else {
                     Swal.fire({
@@ -75,6 +77,11 @@ const UpdateListing = () => {
 
     return (
         <section className='container mx-auto px-4 my-8'>
+            <Helmet>
+                <title>
+                    Update Your Post | Find RoomMates
+                </title>
+            </Helmet>
             <div className="flex flex-col rounded-xl shadow-lg justify-center bg-slate-300 items-center pb-10">
                 <div className='text-center w-full max-w-2xl mt-6 px-4'>
                     <h2 className="text-3xl md:text-4xl font-bold my-8">Update You Post</h2>

@@ -25,21 +25,21 @@ const Navbar = () => {
                         } to="/">Home</NavLink></li>
                         <li><NavLink className={({ isActive }) =>
                             isActive ? "text-indigo-500" : ""
-                        } to="/browse-listings">Browse Listing</NavLink></li>
+                        } to="/browse-listings">Browse All Post</NavLink></li>
                         <li><NavLink className={({ isActive }) =>
                             isActive ? "text-indigo-500" : ""
-                        } to="/addtofind-roommate">Add To Find Roommate</NavLink></li>
+                        } to="/addtofind-roommate">Add Your Post</NavLink></li>
                         <li><NavLink className={({ isActive }) =>
                             isActive ? "text-indigo-500" : ""
-                        } to="/my-listing">My Listing</NavLink></li>
+                        } to="/my-listing">Your Post & Profile</NavLink></li>
                     </ul>
                 </div>
 
                 <div className="navbar-end space-x-2">
                     {user ? (
                         <>
-                            <div className="dropdown dropdown-end flex justify-between gap-2">
-                                <label tabIndex={0} className="tooltip tooltip-left btn btn-ghost btn-circle avatar" data-tip={user.displayName}>
+                            <div className="dropdown dropdown-end flex justify-between gap-4">
+                                <label tabIndex={0} className="tooltip tooltip-left btn btn-ghost btn-circle avatar mb-" data-tip={user.displayName}>
                                     <div className=" w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
                                         <img src={user.photoURL || <FaUserCircle className="text-4xl text-gray-600" />} alt="User" />
                                     </div>
@@ -49,35 +49,29 @@ const Navbar = () => {
                                     className="mt-12 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
                                 >
                                     <li className="font-semibold">{user.displayName || "No Name"}</li>
-                                    <li className="text-xs opacity-70">{user.email || "No Email"}</li>
+                                    <li className="text-xs opacity-70 mb-3">{user.email || "No Email"}</li>
 
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
                                     } to="/">Home</NavLink></li>
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
-                                    } to="/browse-listings">Browse Listing</NavLink></li>
+                                    } to="/browse-listings">Browse All Post</NavLink></li>
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
-                                    } to="/addtofind-roommate">Add To Find Roommate</NavLink></li>
+                                    } to="/addtofind-roommate">Add Your Post</NavLink></li>
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
-                                    } to="/my-listing">My Listing</NavLink></li>
-
-                                    <li className=""><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/profile">Profile</NavLink></li>
-                                    <li className=" md:hidden">
-                                        <button onClick={logOut} className="text-red-500">
+                                    } to="/my-listing">Your Post & Profile</NavLink></li>
+                                    <li className="">
+                                        <button onClick={logOut} className="btn text-red-500">
                                             Logout
                                         </button>
                                     </li>
                                 </ul>
 
                             </div>
-                            <button onClick={logOut} className="text-red-500 btn hidden md:flex">
-                                Logout
-                            </button>
+                            
                         </>
                     ) : (
                         <>
@@ -104,13 +98,13 @@ const Navbar = () => {
                                     } to="/">Home</NavLink></li>
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
-                                    } to="/browse-listings">Browse Listing</NavLink></li>
+                                    } to="/browse-listings">Browse All Post</NavLink></li>
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
-                                    } to="/addtofind-roommate">Add To Find Roommate</NavLink></li>
+                                    } to="/addtofind-roommate">Add Your Post</NavLink></li>
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
-                                    } to="/my-listing">My Listing</NavLink></li>
+                                    } to="/my-listing">Your Post & Profile</NavLink></li>
                                     <li className=" md:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "bg-indigo-500 btn" : "btn"
                                     } to="/login">Login</NavLink></li>

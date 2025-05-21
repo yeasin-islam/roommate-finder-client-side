@@ -10,10 +10,10 @@ const ErrorPage = () => {
     <>
       <div className='fontStyle py-24 text-center bg-base-200</>'>
         <Helmet>
-        <title>
-          Error Page | HomeMates
-        </title>
-      </Helmet>
+          <title>
+            Error | Find RoomMates
+          </title>
+        </Helmet>
         <h1 className='my-5 text-7xl font-thin flex justify-center text-gray-900'>
           <img className='w-2/5' src="/src/assets/404Page.png" alt="" />
         </h1>

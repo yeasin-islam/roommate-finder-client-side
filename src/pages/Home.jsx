@@ -14,7 +14,7 @@ const Home = () => {
         <>
             <Helmet>
                 <title>
-                    Home | HomeMate
+                    Home | Find RoomMates
                 </title>
             </Helmet>
             <div>

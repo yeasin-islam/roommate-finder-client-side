@@ -3,6 +3,8 @@ import { AuthContext } from '../context/AuthContext';
 import LoadingFallback from '../components/shared/LoadingFallback';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
+import Profile from './Profile';
+import { Helmet } from 'react-helmet-async';
 
 const MyListing = () => {
     const { user } = useContext(AuthContext);
@@ -66,10 +68,16 @@ const MyListing = () => {
 
     return (
         <div className="container mx-auto px-4 py-10">
+            <Helmet>
+                <title>
+                   Your Post & Profile | Find RoomMates
+                </title>
+            </Helmet>
             <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold mb-2">My Listings</h2>
+                <Profile></Profile>
+                <h2 className="text-3xl md:text-5xl font-bold mb-2">Your Posts</h2>
                 <p className="text-gray-500 text-sm md:text-base">
-                    All your posted rooms and listings in one place. Update or delete anytime with ease.
+                    All your poste in one place. Update or delete anytime with ease.
                 </p>
             </div>
 

@@ -11,7 +11,6 @@ import BrowseListing from "../pages/BrowseListing";
 import MyListing from "../pages/MyListing";
 import UpdateListing from "../pages/UpdateListing";
 import DetailsPage from "../pages/DetailsPage";
-import Profile from "../pages/Profile";
 
 
 const Router = createBrowserRouter([
@@ -36,10 +35,6 @@ const Router = createBrowserRouter([
                 element: <SingUp />,
             },
             {
-                path: '/profile',
-                element: <PrivateRoute><Profile /></PrivateRoute>,
-            },
-            {
                 path: '/browse-listings',
                 loader: () => fetch('http://localhost:3000/posts'),
                 element: <BrowseListing />,
@@ -47,22 +42,22 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/addtofind-roommate',
-                element: <AddToFindRoommate />,
+                element: <PrivateRoute><AddToFindRoommate /></PrivateRoute>,
                 // loader: () => fetch('../events.json'),
                 hydrateFallbackElement: <LoadingFallback />,
             },
             {
                 path: '/my-listing',
-                element: <MyListing />,
+                element: <PrivateRoute><MyListing /></PrivateRoute>,
             },
             {
                 path: '/update-my-listing/:id',
-                loader: ({params}) => fetch(`http://localhost:3000/posts/${params.id}`),
-                element: <UpdateListing />,
+                loader: ({ params }) => fetch(`http://localhost:3000/posts/${params.id}`),
+                element: <PrivateRoute><UpdateListing /></PrivateRoute>,
             },
             {
                 path: '/details/:id',
-                element: <DetailsPage />,
+                element: <PrivateRoute><DetailsPage /></PrivateRoute> ,
             },
 
         ]

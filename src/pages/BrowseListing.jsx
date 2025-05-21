@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData, useNavigate } from 'react-router';
 
 const BrowseListing = () => {
@@ -7,9 +8,14 @@ const BrowseListing = () => {
 
     return (
         <div className="container mx-auto px-4 py-10">
+            <Helmet>
+                <title>
+                    Browse All Post | Find HomeMates
+                </title>
+            </Helmet>
             <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                    Browse Listings That Feel Like Home
+                    All Post
                 </h2>
                 <p className="text-gray-500 text-sm md:text-base">
                     Explore verified roommate listings with comfort, safety, and convenience at the heart of every match.
