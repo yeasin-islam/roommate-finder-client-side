@@ -20,6 +20,7 @@ const BrowseListing = () => {
                 <table className="table w-full rounded-md shadow bg-slate-100 text-sm md:text-base">
                     <thead className="bg-slate-300 text-gray-800">
                         <tr>
+                            <th>Image</th>
                             <th>Title</th>
                             <th>Location</th>
                             <th>Rent</th>
@@ -30,6 +31,15 @@ const BrowseListing = () => {
                     <tbody>
                         {posts.map((post) => (
                             <tr key={post._id}>
+                                <td>
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle h-12 w-12">
+                                            <img
+                                                src={post.photo}
+                                                alt="Post photo" />
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     <div className="font-bold">{post.title}</div>
                                 </td>

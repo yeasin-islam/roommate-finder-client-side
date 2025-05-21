@@ -57,6 +57,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/update-my-listing/:id',
+                loader: ({params}) => fetch(`http://localhost:3000/posts/${params.id}`),
                 element: <UpdateListing />,
             },
             {

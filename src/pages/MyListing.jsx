@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import LoadingFallback from '../components/shared/LoadingFallback';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const MyListing = () => {
     const { user } = useContext(AuthContext);
@@ -56,6 +57,7 @@ const MyListing = () => {
                                 text: "Your Post has been deleted.",
                                 icon: "success"
                             });
+                            setMyPosts(myPosts.filter(post => post._id !== _id));
                         }
                     })
             }
@@ -75,6 +77,7 @@ const MyListing = () => {
                 <table className="table w-full bg-slate-100 shadow rounded-md text-sm md:text-base">
                     <thead className="bg-slate-300 text-gray-800">
                         <tr>
+                            <th>Image</th>
                             <th>Title</th>
                             <th>Location</th>
                             <th>Rent</th>
@@ -86,6 +89,15 @@ const MyListing = () => {
                     <tbody>
                         {myPosts.map(post => (
                             <tr key={post._id}>
+                                <td>
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle h-12 w-12">
+                                            <img
+                                                src={post.photo}
+                                                alt="Post photo" />
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>{post.title}</td>
                                 <td>{post.location}</td>
                                 <td>{post.rentAmount} Taka</td>
@@ -96,7 +108,9 @@ const MyListing = () => {
                                 </td>
                                 <td>
                                     <div className="md:flex gap-2 justify-center">
-                                        <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline btn-primary">Update</button>
+                                        <Link to={`/update-my-listing/${post._id}`}>
+                                            <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline btn-primary">Update</button>
+                                        </Link>
                                         <button onClick={() => handleDelete(post._id)} className="btn btn-xs md:btn-sm btn-outline btn-error">Delete</button>
                                     </div>
                                 </td>
