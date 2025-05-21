@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router";
 import { Helmet } from "react-helmet-async";
 import { FaUserCircle } from "react-icons/fa"; // You can use any icon you like
+// import { useNavigate } from 'react-router';
 
 const Profile = () => {
   const { user, updateUserProfile } = useContext(AuthContext);

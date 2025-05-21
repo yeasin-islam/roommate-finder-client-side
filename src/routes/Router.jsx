@@ -41,8 +41,8 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/browse-listings',
+                loader: () => fetch('http://localhost:3000/posts'),
                 element: <BrowseListing />,
-                // loader: () => fetch('../events.json'),
                 hydrateFallbackElement: <LoadingFallback />,
             },
             {
