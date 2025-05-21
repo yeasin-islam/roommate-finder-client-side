@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import LoadingFallback from '../components/shared/LoadingFallback';
+import Swal from 'sweetalert2';
 
 const MyListing = () => {
     const { user } = useContext(AuthContext);
@@ -28,6 +29,38 @@ const MyListing = () => {
         );
     }
 
+    const handleDelete = (_id) => {
+        console.log(_id);
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            console.log(result.isConfirmed)
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:3000/posts/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('after delete', data)
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Post has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
 
     return (
         <div className="container mx-auto px-4 py-10">
@@ -64,7 +97,7 @@ const MyListing = () => {
                                 <td>
                                     <div className="md:flex gap-2 justify-center">
                                         <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline btn-primary">Update</button>
-                                        <button className="btn btn-xs md:btn-sm btn-outline btn-error">Delete</button>
+                                        <button onClick={() => handleDelete(post._id)} className="btn btn-xs md:btn-sm btn-outline btn-error">Delete</button>
                                     </div>
                                 </td>
                             </tr>
