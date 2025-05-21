@@ -1,6 +1,34 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import LoadingFallback from '../components/shared/LoadingFallback';
 
 const MyListing = () => {
+    const { user } = useContext(AuthContext);
+    const [myPosts, setMyPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (user?.email) {
+            fetch(`http://localhost:3000/my-posts?email=${user.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    setMyPosts(data);
+                    setLoading(false);
+                })
+                .catch(err => {
+                    console.error(err);
+                    setLoading(false);
+                });
+        }
+    }, [user]);
+
+    if (loading) {
+        return (
+            <LoadingFallback></LoadingFallback>
+        );
+    }
+
+
     return (
         <div className="container mx-auto px-4 py-10">
             <div className="text-center mb-8">
@@ -18,27 +46,29 @@ const MyListing = () => {
                             <th>Location</th>
                             <th>Rent</th>
                             <th>Availability</th>
-                            <th></th>
+                            <th className='text-center'>Actions</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>
-                                <div className="flex items-center gap-3">
-                                    <div className="font-bold">Hart Hagerty</div>
-                                </div>
-                            </td>
-                            <td>Zemlak, Daniel and Leannon</td>
-                            <td>$2200</td>
-                            <td className="text-green-600 font-medium">Available</td>
-                            <td>
-                                <div className="md:flex gap-2 justify-center">
-                                    <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline btn-primary">Update</button>
-                                    <button className="btn btn-xs md:btn-sm btn-outline btn-error">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
+                        {myPosts.map(post => (
+                            <tr key={post._id}>
+                                <td>{post.title}</td>
+                                <td>{post.location}</td>
+                                <td>{post.rentAmount} Taka</td>
+                                <td>
+                                    <span className={`font-semibold ${post.availability === 'Available' ? 'text-green-600' : 'text-red-500'}`}>
+                                        {post.availability}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div className="md:flex gap-2 justify-center">
+                                        <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline btn-primary">Update</button>
+                                        <button className="btn btn-xs md:btn-sm btn-outline btn-error">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
