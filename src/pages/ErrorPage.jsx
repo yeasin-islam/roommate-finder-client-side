@@ -14,8 +14,8 @@ const ErrorPage = () => {
           Error Page | HomeMates
         </title>
       </Helmet>
-        <h1 className='my-10 text-7xl font-thin text-gray-900'>
-          {error?.status || 404}
+        <h1 className='my-5 text-7xl font-thin flex justify-center text-gray-900'>
+          <img className='w-2/5' src="/src/assets/404Page.png" alt="" />
         </h1>
         <p className='mb-3 text-xl font-bold text-gray-900 md:text-2xl'>
           {error?.error?.message || 'Something Went Wrong!'}
