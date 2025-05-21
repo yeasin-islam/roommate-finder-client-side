@@ -1,10 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 
 const BrowseListing = () => {
-
     const posts = useLoaderData();
-    console.log(posts)
+    const navigate = useNavigate();
 
     return (
         <div className="container mx-auto px-4 py-10">
@@ -25,30 +24,32 @@ const BrowseListing = () => {
                             <th>Location</th>
                             <th>Rent</th>
                             <th>Availability</th>
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div className="flex items-center gap-3">
-                                    <div>
-                                        <div className="font-bold">Hart Hagerty</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>Zemlak, Daniel and Leannon</td>
-                            <td>$2200</td>
-                            <td>
-                                <span className="text-green-600 font-medium">Available</span>
-                            </td>
-                            <td className="text-center">
-                                <button className=" btn btn-xs md:btn-sm btn-outline btn-primary w-full md:w-auto">
-                                    See_More
-                                </button>
-                            </td>
-
-                        </tr>
+                        {posts.map((post) => (
+                            <tr key={post._id}>
+                                <td>
+                                    <div className="font-bold">{post.title}</div>
+                                </td>
+                                <td>{post.location}</td>
+                                <td>${post.rentAmount}</td>
+                                <td>
+                                    <span className={`font-medium ${post.availability === 'Available' ? 'text-green-600' : 'text-red-500'}`}>
+                                        {post.availability}
+                                    </span>
+                                </td>
+                                <td className="text-center">
+                                    <button
+                                        onClick={() => navigate(`/details/${post._id}`)}
+                                        className="btn btn-xs md:btn-sm btn-outline btn-primary w-full"
+                                    >
+                                        See_More
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

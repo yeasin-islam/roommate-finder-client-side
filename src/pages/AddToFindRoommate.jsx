@@ -35,6 +35,7 @@ const AddToFindRoommate = () => {
             description: form.description.value,
             contactNumber: form.contactnumber.value,
             availability: form.availability.value,
+            photo: form.photo.value,
             email: user.email,
             name: user.displayName,
             lifestyle: [
@@ -104,8 +105,16 @@ const AddToFindRoommate = () => {
                             <option>Shared</option>
                         </select>
                     </div>
+                    <div>
+                        <legend className="fieldset-legend mb-1">Availability</legend>
+                        <select name="availability" defaultValue="Select a Availability" className="select w-full">
+                            <option disabled>Select a Availability</option>
+                            <option>Available</option>
+                            <option>Not Available</option>
+                        </select>
+                    </div>
 
-                    <div className="md:col-span-2">
+                    <div className="">
                         <legend className="fieldset-legend mb-2">Lifestyle Preferences</legend>
                         <div className='flex flex-col md:flex-row gap-4 required'>
                             <label className="flex items-center gap-2">
@@ -123,25 +132,21 @@ const AddToFindRoommate = () => {
                         </div>
                     </div>
 
-                    <div className="md:col-span-2">
-                        <legend className="fieldset-legend mb-1">Description</legend>
-                        <textarea name="description" className="textarea h-24 w-full" placeholder="Type a short Description" required></textarea>
-                    </div>
 
+                    <div>
+                        <legend className="fieldset-legend mb-1">Image</legend>
+                        <input type="text" name="photo" className="input input-bordered w-full" placeholder="Add a photo URL" required />
+                    </div>
                     <div>
                         <legend className="fieldset-legend mb-1">Contact Number</legend>
                         <input type="text" name="contactnumber" className="input input-bordered w-full" placeholder="Add Your Contact Number" required />
                     </div>
 
-                    <div>
-                        <legend className="fieldset-legend mb-1">Availability</legend>
-                        <select name="availability" defaultValue="Select a Availability" className="select w-full">
-                            <option disabled>Select a Availability</option>
-                            <option>Available</option>
-                            <option>Not Available</option>
-                        </select>
-                    </div>
 
+                    <div className="md:col-span-2">
+                        <legend className="fieldset-legend mb-1">Description</legend>
+                        <textarea name="description" className="textarea h-24 w-full" placeholder="Type a short Description" required></textarea>
+                    </div>
                     <div>
                         <legend className="fieldset-legend mb-1">Email</legend>
                         <input

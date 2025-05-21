@@ -1,9 +1,30 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 
-const FeaturedCard = () => {
+const FeaturedCard = ({ post }) => {
+    const navigate = useNavigate();
+    const { title, location, rentAmount, description, photo, availability } = post;
     return (
-        <div>
-            <p>Featured Card</p>
+        <div className="card bg-base-100 shadow-sm">
+            <div className="flex mx-auto justify-center mt-6 rounded-xl w-72 h-48 overflow-hidden group">
+                <img
+                    src={photo}
+                    alt="Image"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                />
+            </div>
+            <div className="card-body ml-5 text-center">
+                <h2 className="card-title text-center">{title}</h2>
+                <div className='text-left'>
+                    <h3>Location: {location}</h3>
+                    <h3>Availablity: {availability}</h3>
+                    <h4>Rent: {rentAmount} Taka</h4>
+                    <p>Description: {description}</p>
+                </div>
+                <div className="card-actions justify-end">
+                    <button onClick={() => navigate(`/details/${post._id}`)} className="btn btn-primary">See More</button>
+                </div>
+            </div>
         </div>
     );
 };

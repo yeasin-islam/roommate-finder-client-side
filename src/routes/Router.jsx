@@ -24,7 +24,7 @@ const Router = createBrowserRouter([
                 index: true,
                 path: '/',
                 Component: Home,
-                // loader: () => fetch('../events.json'),
+                loader: () => fetch('http://localhost:3000/featured-posts'),
                 hydrateFallbackElement: <LoadingFallback />,
             },
             {
@@ -37,7 +37,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <PrivateRoute><Profile /></PrivateRoute> ,
+                element: <PrivateRoute><Profile /></PrivateRoute>,
             },
             {
                 path: '/browse-listings',
