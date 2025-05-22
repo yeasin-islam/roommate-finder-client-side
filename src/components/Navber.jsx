@@ -2,12 +2,15 @@ import { useContext } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { FaUserCircle } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
+
 
 const Navbar = () => {
     const { logOut, user } = useContext(AuthContext);
+    const PLACES = ['left-end']
 
     return (
-        <div className="fontStyle bg-gray-300">
+        <div className="fontStyle bg-base-300">
             <div className="container mx-auto navbar">
                 <div className="navbar-start">
                     <NavLink to="/">
@@ -61,11 +64,20 @@ const Navbar = () => {
                     {user ? (
                         <>
                             <div className="dropdown dropdown-end flex justify-between gap-2">
-                                <label tabIndex={0} className="tooltip tooltip-left btn btn-ghost btn-circle avatar mb-" data-tip={user.displayName}>
-                                    <div className=" w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
+                                <label tabIndex={0} id="my-tooltip-anchor" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
                                         <img src={user.photoURL || <FaUserCircle className="text-4xl text-gray-600" />} alt="User" />
                                     </div>
                                 </label>
+                                {PLACES.map(place => (
+                                    <Tooltip
+                                        key={place}
+                                        anchorSelect="#my-tooltip-anchor"
+                                        className="w-32 h-[6"
+                                        content={user.displayName}
+                                        place={place}
+                                    />
+                                ))}
                                 <ul
                                     tabIndex={0}
                                     className="mt-12 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"

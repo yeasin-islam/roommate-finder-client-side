@@ -10,7 +10,7 @@ const ReactTypeTypeWriter = () => {
         <span className='text-orange-500 font-bold'>
           <Typewriter
             words={[
-              'Roomie',
+              'Hoomie',
               'Perfect Fit',
               'Home Vibes',
               'Trusted Match'

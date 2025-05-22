@@ -37,6 +37,7 @@ const AddToFindRoommate = () => {
             contactNumber: form.contactnumber.value,
             availability: form.availability.value,
             photo: form.photo.value,
+            likeCount: form.like.value,
             email: user.email,
             name: user.displayName,
             lifestyle: [
@@ -175,6 +176,11 @@ const AddToFindRoommate = () => {
                             className="input input-bordered w-full bg-gray-100"
                             placeholder="Add User Name"
                             required />
+                    </div>
+
+                    <div className='hidden'>
+                        <legend className="fieldset-legend mb-1">Image</legend>
+                        <input type="text" name="like" defaultValue='0' className="input input-bordered w-full" placeholder="Like Count"/>
                     </div>
 
                     <button type="submit" className="btn md:col-span-2 btn-neutral mt-6 px-6">

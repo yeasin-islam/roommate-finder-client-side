@@ -7,6 +7,7 @@ import { AiOutlineLike } from 'react-icons/ai';
 
 const DetailsPage = () => {
     const {
+        _id,
         photo,
         title,
         location,
@@ -16,6 +17,7 @@ const DetailsPage = () => {
         contactNumber,
         availability,
         lifestyle,
+        likeCount,
         name,
         email,
     } = useLoaderData();
@@ -24,6 +26,25 @@ const DetailsPage = () => {
 
     const handleLike = e => {
         e.preventDefault()
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const updatedPost = Object.fromEntries(formData.entries());
+        console.log(updatedPost)
+        
+        fetch(`http://localhost:3000/posts/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedPost)
+        })
+            .then(res => res.json())
+            .then(data => {
+                
+                console.log(data);
+            })
+
     }
 
     return (
@@ -32,7 +53,7 @@ const DetailsPage = () => {
                 <title>Post Details | Find RoomMate</title>
             </Helmet>
             <h2 className="text-3xl font-bold text-gray-800 text-center mb-2">Post Details</h2>
-            <h3 className='text-center mb-5 text-lg'>0 People interested in this post</h3>
+            <h3 className='text-center mb-5 text-lg'>{likeCount} People interested in this post</h3>
             <div className="flex justify-center my-8">
                 <img src={photo} className="w-full sm:w-3/4 md:w-1/2 mx-auto rounded-lg shadow-lg" alt={title} />
             </div>
@@ -62,8 +83,8 @@ const DetailsPage = () => {
             </div>
 
             {/* like btn */}
-            <div>
-                <button oneClickonClick={handleLike} className="btn btn-primary mt-6 mx-auto flex items-center justify-center py-2 px-6 text-lg rounded-lg" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}>
+            <form onSubmit={handleLike}>
+                <button className="btn btn-primary mt-6 mx-auto flex items-center justify-center py-2 px-6 text-lg rounded-lg" popoverTarget="popover-1" >
                     <AiOutlineLike className="mr-2 text-2xl" />Like Post
                 </button>
 
@@ -71,7 +92,7 @@ const DetailsPage = () => {
                     popover="auto" id="popover-1" style={{ positionAnchor: "--anchor-1" } /* as React.CSSProperties */}>
                     <li>{contactNumber}</li>
                 </ul>
-            </div>
+            </form>
         </div>
     )
 }
