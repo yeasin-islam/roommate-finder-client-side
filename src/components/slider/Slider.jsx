@@ -10,13 +10,12 @@ import './styles.css';
 
 // import required modules
 import { Navigation } from 'swiper/modules';
-import Button from '../shared/Button';
 import { Link } from 'react-router';
 
 export default function App() {
     return (
         <>
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            <Swiper navigation={true} modules={[Navigation]} className="poppins mySwiper rounded-lg">
                 {/* 1st */}
                 <SwiperSlide className="relative h-[80vh] bg-cover bg-center bg-[url('/assets/image000.jpg')]">
                     {/* Overlay for dark background effect */}
@@ -25,16 +24,16 @@ export default function App() {
                     {/* Content */}
                     <div className="relative text-center flex items-center justify-center h-full p-6">
                         <div className="w-full text-center  space-y-6 py-32">
-                            <h5 className="text-base-300 text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
                                 Find the Right Roommate,<br />Live Better Together
                             </h5>
 
-                            <p className="st text-gray-200 text-sm sm:text-base md:text-lg max-w-xl">
+                            <p className="st text-base-200 text-sm sm:text-base md:text-lg max-w-xl">
                                 Easily connect with people who share your lifestyle, budget, and vibe. Start your journey to stress-free shared living today.
                             </p>
 
                             <Link to="/browse-listings">
-                                <Button type='submit' label='Get Start' />
+                                <button className="btn text-2xl font-bold px-8 py-6  w-full sm:w-auto">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -47,16 +46,16 @@ export default function App() {
                     {/* Content */}
                     <div className="relative text-center flex items-center justify-center h-full p-6">
                         <div className="w-full text-center  space-y-6 py-32">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
                                 Your Perfect Living Match <br /> Is Just a Click Away
                             </h5>
 
-                            <p className="st text-gray-200 text-sm sm:text-base md:text-lg max-w-xl">
+                            <p className="st text-base-200 text-sm sm:text-base md:text-lg max-w-xl">
                                 Whether you're moving in or moving out, we help you find reliable roommates and verified rooms — fast, easy, and stress-free.
                             </p>
 
                             <Link to="/browse-listings">
-                                <Button type='submit' label='Get Start' />
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -69,16 +68,16 @@ export default function App() {
                     {/* Content */}
                     <div className="relative text-center flex items-center justify-center h-full p-6">
                         <div className="w-full text-center  space-y-6 py-32">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
                                 Discover Spaces That <br /> Feel Like Home
                             </h5>
 
-                            <p className="st text-gray-200 text-sm sm:text-base md:text-lg max-w-xl">
+                            <p className="st text-base-200 text-sm sm:text-base md:text-lg max-w-xl">
                                 Explore listings tailored to your lifestyle and connect with roommates who match your vibe. Because your next home is more than just four walls.
                             </p>
 
                             <Link to="/browse-listings">
-                                <Button type='submit' label='Get Start' />
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -91,16 +90,16 @@ export default function App() {
                     {/* Content */}
                     <div className="relative text-center flex items-center justify-center h-full p-6">
                         <div className="w-full text-center  space-y-6 py-32">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
                                 Discover Verified Posts <br /> Across the City
                             </h5>
 
-                            <p className="st text-gray-200 text-sm sm:text-base md:text-lg max-w-xl">
+                            <p className="st text-base-200 text-sm sm:text-base md:text-lg max-w-xl">
                                 Browse updated, real-time room and flatmate options in your area. All listings come with verified details and clear photos.
                             </p>
 
                             <Link to="/browse-listings">
-                                <Button type='submit' label='Get Start' />
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -113,15 +112,15 @@ export default function App() {
                     {/* Content */}
                     <div className="relative text-center flex items-center justify-center h-full p-6">
                         <div className="w-full text-center  space-y-6 py-32">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
                                 Post Your Room or Flatmate <br /> Requirement in Minutes
                             </h5>
 
-                            <p className="text-gray-200 text-sm sm:text-base md:text-lg max-w-xl text-center">
+                            <p className="text-base-200 text-sm sm:text-base md:text-lg max-w-xl text-center">
                                 Got a spare room or looking for a flatmate? Post your ad in under 2 minutes and connect with the right people fast.
                             </p>
                             <Link to="/browse-listings">
-                                <Button type='submit' label='Get Start' />
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
                             </Link>
                         </div>
                     </div>

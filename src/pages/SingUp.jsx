@@ -65,7 +65,7 @@ const SingUp = () => {
   };
 
   return (
-    <div className=" fontStyle bg-base-200 p-10 rounded-xl flex items-center justify-center min-h-screen">
+    <div className=" popins bg-base-200 p-10 rounded-xl flex items-center justify-center min-h-screen">
       <Helmet>
         <title>
           SingUp | Find RoomMates

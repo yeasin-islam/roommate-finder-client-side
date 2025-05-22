@@ -8,7 +8,7 @@ const ErrorPage = () => {
 
   return (
     <>
-      <div className='fontStyle py-24 text-center bg-base-200</>'>
+      <div className='popins py-24 text-center bg-base-200</>'>
         <Helmet>
           <title>
             Error | Find RoomMates

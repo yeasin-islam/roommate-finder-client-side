@@ -70,20 +70,20 @@ const MyListing = () => {
         <div className="container mx-auto px-4 py-10">
             <Helmet>
                 <title>
-                   Your Post & Profile | Find RoomMates
+                    Your Post & Profile | Find RoomMates
                 </title>
             </Helmet>
             <div className="text-center mb-8">
                 <Profile></Profile>
                 <h2 className="text-3xl md:text-5xl font-bold mb-2">Your Posts</h2>
-                <p className="text-gray-500 text-sm md:text-base">
+                <p className="text-sm md:text-base">
                     All your poste in one place. Update or delete anytime with ease.
                 </p>
             </div>
 
             <div className="overflow-x-auto">
-                <table className="table w-full bg-slate-100 shadow rounded-md text-sm md:text-base">
-                    <thead className="bg-slate-300 text-gray-800">
+                <table className="table w-full bg-base-200 shadow rounded-md text-sm md:text-base">
+                    <thead className="bg-base-300">
                         <tr>
                             <th>Image</th>
                             <th>Title</th>
@@ -115,11 +115,22 @@ const MyListing = () => {
                                     </span>
                                 </td>
                                 <td>
-                                    <div className="md:flex gap-2 justify-center">
+                                    <div className="md:flex items-center gap-2 justify-center">
+                                        <Link to={`/details/${post._id}`}>
+                                            <button
+                                                className="btn btn-xs md:btn-sm btn-outline mb-2 "
+                                            >
+                                                Details
+                                            </button>
+                                        </Link>
                                         <Link to={`/update-my-listing/${post._id}`}>
-                                            <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline btn-primary">Update</button>
+                                            <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline">Update</button>
                                         </Link>
                                         <button onClick={() => handleDelete(post._id)} className="btn btn-xs md:btn-sm btn-outline btn-error">Delete</button>
+
+
+
+
                                     </div>
                                 </td>
                             </tr>

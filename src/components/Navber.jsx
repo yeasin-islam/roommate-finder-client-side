@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { FaUserCircle } from "react-icons/fa";
@@ -9,8 +9,24 @@ const Navbar = () => {
     const { logOut, user } = useContext(AuthContext);
     const PLACES = ['left-end']
 
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+    const handleToggle = (e) => {
+        if (e.target.checked) {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        }
+    };
+
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+        document.querySelector("html").setAttribute("data-theme", theme);
+    }, [theme]);
+
+
     return (
-        <div className="fontStyle bg-base-300">
+        <div className="popins bg-base-300">
             <div className="container mx-auto navbar">
                 <div className="navbar-start">
                     <NavLink to="/">
@@ -41,7 +57,10 @@ const Navbar = () => {
                 <div className="navbar-end space-x-2">
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}
-                        <input type="checkbox" className="theme-controller" value="synthwave" />
+                        <input type="checkbox"
+                            onChange={handleToggle}
+                            checked={theme === "light" ? false : true}
+                            className="theme-controller" value="synthwave" />
 
                         {/* sun icon */}
                         <svg

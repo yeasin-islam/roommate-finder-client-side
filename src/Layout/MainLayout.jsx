@@ -4,7 +4,7 @@ import Navber from "../components/Navber";
 
 const MainLayout = () => {
     return (
-        <div className="fontStyle">
+        <div className="popins">
             <Navber />
             <Outlet />
             <Footer />

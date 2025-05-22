@@ -13,17 +13,17 @@ const BrowseListing = () => {
                 </title>
             </Helmet>
             <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                <h2 className="text-3xl md:text-5xl font-bold mb-2">
                     All Post
                 </h2>
-                <p className="text-gray-500 text-sm md:text-base">
+                <p className="a text-sm md:text-base">
                     Explore verified roommate listings with comfort, safety, and convenience at the heart of every match.
                 </p>
             </div>
 
             <div className="overflow-x-auto">
-                <table className="table w-full rounded-md shadow bg-slate-100 text-sm md:text-base">
-                    <thead className="bg-slate-300 text-gray-800">
+                <table className="table w-full rounded-md shadow bg-base-200 text-sm md:text-base">
+                    <thead className="bg-base-300">
                         <tr>
                             <th>Image</th>
                             <th>Title</th>
@@ -49,7 +49,7 @@ const BrowseListing = () => {
                                     <div className="font-bold">{post.title}</div>
                                 </td>
                                 <td>{post.location}</td>
-                                <td>${post.rentAmount}</td>
+                                <td>{post.rentAmount} Taka</td>
                                 <td>
                                     <span className={`font-medium ${post.availability === 'Available' ? 'text-green-600' : 'text-red-500'}`}>
                                         {post.availability}
@@ -58,9 +58,9 @@ const BrowseListing = () => {
                                 <td className="text-center">
                                     <Link to={`/details/${post._id}`}>
                                         <button
-                                            className="btn btn-xs md:btn-sm btn-outline btn-primary"
+                                            className="btn btn-xs md:btn-sm btn-outline "
                                         >
-                                            See_More
+                                            Details
                                         </button>
                                     </Link>
                                 </td>

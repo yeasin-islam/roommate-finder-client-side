@@ -82,7 +82,7 @@ const UpdateListing = () => {
                     Update Your Post | Find RoomMates
                 </title>
             </Helmet>
-            <div className="flex flex-col rounded-xl shadow-lg justify-center bg-slate-300 items-center pb-10">
+            <div className="flex flex-col rounded-xl shadow-lg justify-center bg-base-300 items-center pb-10">
                 <div className='text-center w-full max-w-2xl mt-6 px-4'>
                     <h2 className="text-3xl md:text-4xl font-bold my-8">Update You Post</h2>
                 </div>

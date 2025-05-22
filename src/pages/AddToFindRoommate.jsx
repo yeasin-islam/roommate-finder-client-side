@@ -81,10 +81,10 @@ const AddToFindRoommate = () => {
                     Add Your Post | Find HomeMates
                 </title>
             </Helmet>
-            <div className="flex flex-col rounded-xl shadow-lg justify-center bg-slate-300 items-center pb-10">
+            <div className="flex flex-col rounded-xl shadow-lg justify-center bg-base-300 items-center pb-10">
                 <div className='text-center w-full max-w-2xl mt-6 px-4'>
                     <h2 className="text-3xl md:text-4xl font-bold my-4">Add Your Post</h2>
-                    <p className="text-gray-600 mb-6">Share your room details and connect with someone who matches your vibe and lifestyle.</p>
+                    <p className=" mb-6">Share your room details and connect with someone who matches your vibe and lifestyle.</p>
                 </div>
 
                 <form onSubmit={handleAddToFind} className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-10 w-full max-w-5xl">

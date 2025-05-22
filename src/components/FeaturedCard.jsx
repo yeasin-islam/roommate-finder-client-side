@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const FeaturedCard = ({ post }) => {
     const { title, location, rentAmount, photo, availability } = post;
     return (
-        <div className="card bg-base-100 shadow-sm">
+        <div className="card bg-base-300 shadow-sm">
             <div className="flex mx-auto justify-center mt-6 rounded-xl w-72 h-48 overflow-hidden group">
                 <img
                     src={photo}
@@ -22,7 +22,7 @@ const FeaturedCard = ({ post }) => {
                 <div className="card-actions justify-end">
                     <Link to={`/details/${post._id}`}>
                         <button
-                            className="btn btn-xs md:btn-sm btn-outline btn-primary w-full"
+                            className="btn btn-xs md:btn-sm btn-outline  w-full"
                         >
                             See_More
                         </button>

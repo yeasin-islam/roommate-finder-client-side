@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 
 const Footer = () => {
     return (
-        <div className="bg-base-300 text-gray-800 fontStyle">
+        <div className="bg-base-300 popins">
             <footer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-10 container mx-auto px-4">
                 {/* Logo & Description */}
                 <div className="flex flex-col items-center sm:items-start">

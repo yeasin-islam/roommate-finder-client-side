@@ -8,7 +8,7 @@ const Profile = () => {
 
   return (
     <section className='my-2 mb-4'>
-      <div className="fontStyle max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg text-center">
+      <div className="popins max-w-md mx-auto p-6 bg-base-300 rounded-xl shadow-lg text-center">
 
         <h1 className="text-2xl font-bold mb-4">Your Profile</h1>
 
