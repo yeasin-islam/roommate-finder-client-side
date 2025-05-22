@@ -1,8 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router';
 
 const FeaturedCard = ({ post }) => {
-    const navigate = useNavigate();
     const { title, location, rentAmount, description, photo, availability } = post;
     return (
         <div className="card bg-base-100 shadow-sm">
@@ -22,7 +21,13 @@ const FeaturedCard = ({ post }) => {
                     <p>Description: {description}</p>
                 </div>
                 <div className="card-actions justify-end">
-                    <button onClick={() => navigate(`/details/${post._id}`)} className="btn btn-primary">See More</button>
+                    <Link to={`/details/${post._id}`}>
+                        <button
+                            className="btn btn-xs md:btn-sm btn-outline btn-primary w-full"
+                        >
+                            See_More
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

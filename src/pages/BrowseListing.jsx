@@ -1,10 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData, useNavigate } from 'react-router';
+import { Link, useLoaderData} from 'react-router';
 
 const BrowseListing = () => {
     const posts = useLoaderData();
-    const navigate = useNavigate();
 
     return (
         <div className="container mx-auto px-4 py-10">
@@ -57,12 +56,13 @@ const BrowseListing = () => {
                                     </span>
                                 </td>
                                 <td className="text-center">
-                                    <button
-                                        onClick={() => navigate(`/details/${post._id}`)}
-                                        className="btn btn-xs md:btn-sm btn-outline btn-primary w-full"
-                                    >
-                                        See_More
-                                    </button>
+                                    <Link to={`/details/${post._id}`}>
+                                        <button
+                                            className="btn btn-xs md:btn-sm btn-outline btn-primary w-full"
+                                        >
+                                            See_More
+                                        </button>
+                                    </Link>
                                 </td>
                             </tr>
                         ))}
