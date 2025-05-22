@@ -13,7 +13,7 @@ const FeaturedContainer = ({ posts }) => {
 
     return (
         <section className='bg-base-200'>
-            <div className='fontStyle py-12 px-4 md:px-0 sm:px-6 lg:px-8 text-center container mx-auto'>
+            <div className='fontStyle py-12 px-4 md:px-0 text-center container mx-auto'>
                 {/* Section Tag & Description */}
                 <div className="mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">

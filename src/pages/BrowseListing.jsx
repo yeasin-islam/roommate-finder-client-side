@@ -30,7 +30,7 @@ const BrowseListing = () => {
                             <th>Location</th>
                             <th>Rent</th>
                             <th>Availability</th>
-                            <th>Action</th>
+                            <th className='text-center'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,7 +58,7 @@ const BrowseListing = () => {
                                 <td className="text-center">
                                     <Link to={`/details/${post._id}`}>
                                         <button
-                                            className="btn btn-xs md:btn-sm btn-outline btn-primary w-full"
+                                            className="btn btn-xs md:btn-sm btn-outline btn-primary"
                                         >
                                             See_More
                                         </button>
