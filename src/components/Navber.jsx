@@ -132,8 +132,8 @@ const Navbar = () => {
                         <>
                             {/* Login/Register for all screens */}
                             <div className="space-x-2 hidden lg:flex">
-                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-500 btn" : "btn"} to="/login">Login</NavLink>
-                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-500 btn" : "btn"} to="/singup">SingUp</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-700 btn" : "btn btn-primary"} to="/login">Login</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-700 btn" : "btn btn-primary"} to="/singup">SingUp</NavLink>
                             </div>
 
                             {/* Dropdown only on mobile (visible if logged out) */}

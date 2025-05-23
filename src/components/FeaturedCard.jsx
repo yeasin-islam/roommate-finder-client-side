@@ -24,7 +24,7 @@ const FeaturedCard = ({ post }) => {
                 <div className="card-actions justify-end">
                     <Link to={`/details/${post._id}`}>
                         <button id="clickable"
-                            className="btn btn-xs md:btn-sm btn-outline  w-full"
+                            className="btn btn-primary btn-xs md:btn-sm btn-outline  w-full"
                         >
                             See_More
                         </button>
