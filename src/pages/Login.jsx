@@ -62,7 +62,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" popins bg-base-200 p-10 rounded-xl shadow-2xl flex items-center justify-center min-h-screen">
+    <div className=" popins bg-base-200 p-10 rounded-xl shadow-2xl flex items-center justify-center">
       <Helmet>
         <title>
           Login | Find RoomMates

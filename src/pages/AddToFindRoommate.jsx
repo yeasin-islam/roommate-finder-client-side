@@ -46,7 +46,7 @@ const AddToFindRoommate = () => {
                 form.night.checked && 'Night Owl'
             ].filter(Boolean),
         };
-        console.log('Form Submission:', addToFindPost);
+        // console.log('Form Submission:', addToFindPost);
 
         fetch('http://localhost:3000/posts', {
             method: 'POST',
@@ -59,7 +59,7 @@ const AddToFindRoommate = () => {
             .then(data => {
 
                 if (data.insertedId) {
-                    console.log(data)
+                    // console.log(data)
                     Swal.fire({
                         title: 'Listing Added!',
                         text: 'Your roommate listing has been submitted successfully.',

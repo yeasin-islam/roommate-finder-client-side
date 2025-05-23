@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Tooltip } from 'react-tooltip';
 
 const FeaturedCard = ({ post }) => {
+    const PLACES = ['top-end']
     const { title, location, rentAmount, photo, availability } = post;
     return (
         <div className="card bg-base-300 shadow-sm">
@@ -21,11 +23,16 @@ const FeaturedCard = ({ post }) => {
                 </div>
                 <div className="card-actions justify-end">
                     <Link to={`/details/${post._id}`}>
-                        <button
+                        <button id="clickable"
                             className="btn btn-xs md:btn-sm btn-outline  w-full"
                         >
                             See_More
                         </button>
+                        {PLACES.map(place => (
+                            <Tooltip key={place} anchorSelect="#clickable" place={place} clickable>
+                                <button>Click me for see details!</button>
+                            </Tooltip>
+                        ))}
                     </Link>
                 </div>
             </div>

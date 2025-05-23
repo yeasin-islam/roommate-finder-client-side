@@ -33,7 +33,7 @@ const MyListing = () => {
     }
 
     const handleDelete = (_id) => {
-        console.log(_id);
+        // console.log(_id);
 
         Swal.fire({
             title: "Are you sure?",
@@ -44,7 +44,7 @@ const MyListing = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-            console.log(result.isConfirmed)
+            // console.log(result.isConfirmed)
             if (result.isConfirmed) {
 
                 fetch(`http://localhost:3000/posts/${_id}`, {
@@ -52,7 +52,7 @@ const MyListing = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log('after delete', data)
+                        // console.log('after delete', data)
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",

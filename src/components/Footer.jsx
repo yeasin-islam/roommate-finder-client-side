@@ -60,8 +60,8 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-
-            <p className="text-center py-4 text-sm">
+            <hr className="container mx-auto" />
+            <p className="text-center py-6 text-md">
                 © {new Date().getFullYear()} – All rights reserved by Find RoomMate Team
             </p>
         </div>

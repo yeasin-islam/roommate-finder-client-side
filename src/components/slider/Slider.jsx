@@ -33,7 +33,7 @@ export default function App() {
                             </p>
 
                             <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6  w-full sm:w-auto">Get Start</button>
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ export default function App() {
                             </p>
 
                             <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ export default function App() {
                             </p>
 
                             <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ export default function App() {
                             </p>
 
                             <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
                             </Link>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ export default function App() {
                                 Got a spare room or looking for a flatmate? Post your ad in under 2 minutes and connect with the right people fast.
                             </p>
                             <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary w-full sm:w-auto">Get Start</button>
+                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
                             </Link>
                         </div>
                     </div>

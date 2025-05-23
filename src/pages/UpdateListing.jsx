@@ -41,7 +41,7 @@ const UpdateListing = () => {
         const form = e.target;
         const formData = new FormData(form);
         const updatedPost = Object.fromEntries(formData.entries());
-        console.log(updatedPost)
+        // console.log(updatedPost)
 
         fetch(`http://localhost:3000/posts/${_id}`, {
             method: 'PUT',
