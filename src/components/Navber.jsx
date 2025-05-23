@@ -33,6 +33,40 @@ const Navbar = () => {
         <div className="popins bg-base-300">
             <div className="container mx-auto navbar">
                 <div className="navbar-start">
+                    {user ? (
+                        <>
+                            <div className="lg:hidden dropdown dropdown-start flex justify-between gap-2">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
+                                    </svg>
+                                </div>
+                                <ul
+                                    tabIndex={0}
+                                    className="mt-12 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                                >
+
+                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+                                        isActive ? "text-indigo-500" : ""
+                                    } to="/">Home</NavLink></li>
+                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+                                        isActive ? "text-indigo-500" : ""
+                                    } to="/browse-listings">Browse All Post</NavLink></li>
+                                    <li className="lg:hidden"><NavLink className={({ isActive }) =>
+                                        isActive ? "text-indigo-500" : ""
+                                    } to="/addtofind-roommate">Add Your Post</NavLink></li>
+                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+                                        isActive ? "text-indigo-500" : ""
+                                    } to="/my-listing">Your Post & Profile</NavLink></li>
+                                    <button onClick={logOut} className=" btn btn-error btn-sm w-full mt-2">
+                                        Logout
+                                    </button>
+                                </ul>
+
+                            </div>
+
+                        </>
+                    ) : ("")}
                     <NavLink to="/">
                         <div className="flex justify-start items-center">
                             <p className="text-4xl flex items-center font-bold text-[#3683af]">Find</p>
@@ -104,7 +138,7 @@ const Navbar = () => {
                                     onMouseLeave={(e) => e.stopPropagation()}>
                                     <p className="font-semibold">{user.displayName || "No Name"}</p>
                                     <p className="text-xs opacity-70">{user.email || "No Email"}</p>
-                                    <ul className="my-2 space-y-1 text-xs opacity-70">
+                                    {/* <ul className=" hidden lg:flex my-2 space-y-1 text-xs opacity-70">
                                         <li className=" lg:hidden"><NavLink className={({ isActive }) =>
                                             isActive ? "text-indigo-500" : ""
                                         } to="/">Home</NavLink></li>
@@ -117,8 +151,8 @@ const Navbar = () => {
                                         <li className=" lg:hidden"><NavLink className={({ isActive }) =>
                                             isActive ? "text-indigo-500" : ""
                                         } to="/my-listing">Your Post & Profile</NavLink></li>
-                                    </ul>
-                                    <button onClick={logOut} className="btn btn-error btn-sm w-full mt-2">
+                                    </ul> */}
+                                    <button onClick={logOut} className=" hidden lg:flex btn btn-error btn-sm w-full mt-2">
                                         Logout
                                     </button>
                                 </div>
