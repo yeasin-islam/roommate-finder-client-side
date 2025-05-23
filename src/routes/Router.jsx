@@ -59,7 +59,6 @@ const Router = createBrowserRouter([
                 path: '/details/:id',
                 loader: ({ params }) => fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${params.id}`),
                 element: <PrivateRoute><DetailsPage /></PrivateRoute>,
-
             },
 
         ]

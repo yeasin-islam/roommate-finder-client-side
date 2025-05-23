@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { FaUserCircle } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
@@ -10,6 +10,10 @@ const Navbar = () => {
     const PLACES = ['left-end']
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+
+
+
 
     const handleToggle = (e) => {
         if (e.target.checked) {
@@ -31,7 +35,7 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <NavLink to="/">
                         <div className="flex justify-start items-center">
-                            <p className="text-4xl font-bold text-[#3683af]">Find</p>
+                            <p className="text-4xl flex items-center font-bold text-[#3683af]">Find</p>
                             <img className="h-9 w-20" src="/icon.png" alt="RoomMates" />
                         </div>
                     </NavLink>
@@ -82,51 +86,43 @@ const Navbar = () => {
                     </label>
                     {user ? (
                         <>
-                            <div className="dropdown dropdown-end flex justify-between gap-2">
-                                <label tabIndex={0} id="my-tooltip-anchor" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" >
-                                        <img src={user.photoURL || <FaUserCircle className="text-4xl text-gray-600" />} alt="User" />
+                            <div className="relative group">
+                                {/* Avatar and trigger */}
+                                <div className="flex items-center gap-2 cursor-pointer">
+                                    <div className="w-10 h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
+                                        <img
+                                            src={user.photoURL || "/default-avatar.png"}
+                                            alt="User"
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
-                                </label>
-                                {PLACES.map(place => (
-                                    <Tooltip
-                                        key={place}
-                                        anchorSelect="#my-tooltip-anchor"
-                                        className="w-32"
-                                        content={user.displayName}
-                                        place={place}
-                                    />
-                                ))}
-                                <ul
-                                    tabIndex={0}
-                                    className="mt-12 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                                >
-                                    <li className="font-semibold">{user.displayName || "No Name"}</li>
-                                    <li className="text-xs opacity-70 mb-3">{user.email || "No Email"}</li>
+                                </div>
 
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/">Home</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/browse-listings">Browse All Post</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/addtofind-roommate">Add Your Post</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/my-listing">Your Post & Profile</NavLink></li>
-                                    <li className="lg:hidden">
-                                        <button onClick={logOut} className="btn text-red-500">
-                                            Logout
-                                        </button>
-                                    </li>
-                                </ul>
-                                <button onClick={logOut} className="btn text-red-500 hidden lg:flex">
-                                    Logout
-                                </button>
+                                {/* Hover menu */}
+                                <div className="absolute right-0 mt-2 bg-base-100 rounded-md shadow-lg p-4  w-56 opacity-0 group-hover:opacity-100 group-hover:visible invisible transition duration-200 z-50"
+                                    onMouseEnter={(e) => e.stopPropagation()}
+                                    onMouseLeave={(e) => e.stopPropagation()}>
+                                    <p className="font-semibold">{user.displayName || "No Name"}</p>
+                                    <p className="text-xs opacity-70">{user.email || "No Email"}</p>
+                                    <ul className="my-2 space-y-1 text-xs opacity-70">
+                                        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+                                            isActive ? "text-indigo-500" : ""
+                                        } to="/">Home</NavLink></li>
+                                        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+                                            isActive ? "text-indigo-500" : ""
+                                        } to="/browse-listings">Browse All Post</NavLink></li>
+                                        <li className="lg:hidden"><NavLink className={({ isActive }) =>
+                                            isActive ? "text-indigo-500" : ""
+                                        } to="/addtofind-roommate">Add Your Post</NavLink></li>
+                                        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+                                            isActive ? "text-indigo-500" : ""
+                                        } to="/my-listing">Your Post & Profile</NavLink></li>
+                                    </ul>
+                                    <button onClick={logOut} className="btn btn-error btn-sm w-full mt-2">
+                                        Logout
+                                    </button>
+                                </div>
                             </div>
-
                         </>
                     ) : (
                         <>
@@ -154,17 +150,17 @@ const Navbar = () => {
                                     <li className=" lg:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
                                     } to="/browse-listings">Browse All Post</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+                                    <li className="lg:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
                                     } to="/addtofind-roommate">Add Your Post</NavLink></li>
                                     <li className=" lg:hidden"><NavLink className={({ isActive }) =>
                                         isActive ? "text-indigo-500" : ""
                                     } to="/my-listing">Your Post & Profile</NavLink></li>
                                     <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "bg-indigo-500 btn" : "btn"
+                                        isActive ? "bg-indigo-700 btn" : "btn btn-primary"
                                     } to="/login">Login</NavLink></li>
                                     <li className=" lg:hidden mt-2"><NavLink className={({ isActive }) =>
-                                        isActive ? "bg-indigo-500 btn" : "btn"
+                                        isActive ? "bg-indigo-700 btn" : "btn btn-primary"
                                     } to="/singup">SingUp</NavLink></li>
                                 </ul>
 

@@ -24,25 +24,25 @@ const DetailsPage = () => {
     const handleLike = e => {
         e.preventDefault()
 
-        // const form = e.target;
-        // const formData = new FormData(form);
-        // const updatedPost = Object.fromEntries(formData.entries());
-        // console.log(updatedPost)
+        const form = e.target;
+        const formData = new FormData(form);
+        const updatedPost = Object.fromEntries(formData.entries());
+        console.log(updatedPost)
 
-        // fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${_id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(updatedPost)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         // if (data.matchedCount) {
-        //         //     { likeCount }={ likeCount } + 1;
-        //         // }
-        //         console.log(data);
-        //     })
+        fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedPost)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // if (data.matchedCount) {
+                //     { likeCount }={ likeCount } + 1;
+                // }
+                console.log(data);
+            })
 
     }
 
