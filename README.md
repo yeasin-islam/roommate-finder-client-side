@@ -1,12 +1,20 @@
-# React + Vite
+# Find RoomMates 🏠
+A modern, user-friendly web application that helps you find compatible roommates based on preferences, lifestyle, and location. Built with React and Firebase, it simplifies the process of shared living — from browsing to connecting.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🌍 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [Firebase](https://roommate-finder-b11-a10.web.app)
+🔗 [Netlify](https://find-roommate-catagori-orange-a10.netlify.app)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+- 🔐 **Authentication System**: Users can sign up, log in, and log out using email/password or Google login via Firebase.
+- 📋 **Detailed Listings**: Posts include lifestyle tags, room types, rent details, contact info, and availability.
+- 📝 **Post a Room Listing**: Authenticated users can create new listings with all relevant roommate and room info.
+- 🔍 **Browse Roommate Posts**: Explore all public posts with filters to help you find the right match easily.
+- 💻 **Responsive Design**: Fully responsive across devices with TailwindCSS and DaisyUI for a polished UI/UX.
+
+---
