@@ -13,7 +13,7 @@ const MyListing = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/my-posts?email=${user.email}`)
+            fetch(`https://batch11-assignment-10-server-side.vercel.app/my-posts?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyPosts(data);
@@ -47,7 +47,7 @@ const MyListing = () => {
             // console.log(result.isConfirmed)
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/posts/${_id}`, {
+                fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

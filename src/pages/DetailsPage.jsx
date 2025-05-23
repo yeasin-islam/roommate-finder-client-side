@@ -29,7 +29,7 @@ const DetailsPage = () => {
         // const updatedPost = Object.fromEntries(formData.entries());
         // console.log(updatedPost)
 
-        // fetch(`http://localhost:3000/posts/${_id}`, {
+        // fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${_id}`, {
         //     method: 'PUT',
         //     headers: {
         //         'content-type': 'application/json'

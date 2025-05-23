@@ -23,7 +23,7 @@ const Router = createBrowserRouter([
                 index: true,
                 path: '/',
                 Component: Home,
-                loader: () => fetch('http://localhost:3000/featured-posts'),
+                loader: () => fetch('https://batch11-assignment-10-server-side.vercel.app/featured-posts'),
                 hydrateFallbackElement: <LoadingFallback />,
             },
             {
@@ -36,7 +36,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/browse-listings',
-                loader: () => fetch('http://localhost:3000/posts'),
+                loader: () => fetch('https://batch11-assignment-10-server-side.vercel.app/posts'),
                 element: <BrowseListing />,
                 hydrateFallbackElement: <LoadingFallback />,
             },
@@ -52,12 +52,12 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/update-my-listing/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/posts/${params.id}`),
+                loader: ({ params }) => fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${params.id}`),
                 element: <PrivateRoute><UpdateListing /></PrivateRoute>,
             },
             {
                 path: '/details/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/posts/${params.id}`),
+                loader: ({ params }) => fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${params.id}`),
                 element: <PrivateRoute><DetailsPage /></PrivateRoute>,
 
             },

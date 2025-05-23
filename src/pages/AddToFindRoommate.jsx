@@ -48,7 +48,7 @@ const AddToFindRoommate = () => {
         };
         // console.log('Form Submission:', addToFindPost);
 
-        fetch('http://localhost:3000/posts', {
+        fetch('https://batch11-assignment-10-server-side.vercel.app/posts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
