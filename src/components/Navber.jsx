@@ -11,10 +11,6 @@ const Navbar = () => {
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-
-
-
-
     const handleToggle = (e) => {
         if (e.target.checked) {
             setTheme("dark");
@@ -28,68 +24,117 @@ const Navbar = () => {
         document.querySelector("html").setAttribute("data-theme", theme);
     }, [theme]);
 
+    const beforLogin = <>
+        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+            isActive ? "text-indigo-500 font-bold" : ""
+        } to="/">Home</NavLink></li>
+        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+            isActive ? "text-indigo-500 font-bold" : ""
+        } to="/browse-listings">Browse All Post</NavLink></li>
+        <li>
+            <details>
+                <summary className="cursor-pointer">Dashboard</summary>
+                <ul className="pl-4">
+                    <li>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? "text-indigo-500 font-bold" : ""
+                        } to="/dashboard/overview">Overview</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? "text-indigo-500 font-bold" : ""
+                        } to="/dashboard/all-post">All Post</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? "text-indigo-500 font-bold" : ""
+                        } to="/dashboard/my-listing">Your Post</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? "text-indigo-500 font-bold" : ""
+                        } to="/dashboard/addtofind-roommate">Add Your Post</NavLink>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>About Us</NavLink></li>
+        <li><NavLink to="/contact" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Contact</NavLink></li>
+        <li><NavLink to="/support" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Support</NavLink></li>
+
+        <button onClick={logOut} className=" btn btn-error btn-sm w-full mt-2">
+            Logout
+        </button>
+    </>
+
+    const afterLogin = <>
+        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+            isActive ? "text-indigo-500 font-bold" : ""
+        } to="/">Home</NavLink></li>
+        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+            isActive ? "text-indigo-500 font-bold" : ""
+        } to="/browse-listings">Browse All Post</NavLink></li>
+        <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>About Us</NavLink></li>
+        <li><NavLink to="/contact" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Contact</NavLink></li>
+        <li><NavLink to="/support" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Support</NavLink></li>
+
+        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
+            isActive ? "bg-indigo-700 btn" : "btn btn-primary"
+        } to="/login">Login</NavLink></li>
+        <li className=" lg:hidden mt-2"><NavLink className={({ isActive }) =>
+            isActive ? "bg-indigo-700 btn" : "btn btn-primary"
+        } to="/singup">SingUp</NavLink></li>
+    </>
+
+
+
 
     return (
-        <div className="popins bg-base-300">
+        <div className="popins bg-gradient-to-br from-base-300 via-base-200 to-base-300 sticky top-0 z-50">
             <div className="container mx-auto navbar">
                 <div className="navbar-start">
-                    {user ? (
-                        <>
-                            <div className="lg:hidden dropdown dropdown-start flex justify-between gap-2">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
-                                    </svg>
-                                </div>
-                                <ul
-                                    tabIndex={0}
-                                    className="mt-12 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                                >
-
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/">Home</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/browse-listings">Browse All Post</NavLink></li>
-                                    <li className="lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/addtofind-roommate">Add Your Post</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/my-listing">Your Post & Profile</NavLink></li>
-                                    <button onClick={logOut} className=" btn btn-error btn-sm w-full mt-2">
-                                        Logout
-                                    </button>
-                                </ul>
-
-                            </div>
-
-                        </>
-                    ) : ("")}
                     <NavLink to="/">
                         <div className="flex justify-start items-center">
-                            <p className="text-4xl flex items-center font-bold text-[#3683af]">Find</p>
+                            <p className="text-4xl flex items-center font-bold text-primary">Find</p>
                             <img className="h-9 w-20" src="/icon.png" alt="RoomMates" />
                         </div>
                     </NavLink>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><NavLink className={({ isActive }) =>
-                            isActive ? "text-indigo-500" : ""
-                        } to="/">Home</NavLink></li>
-                        <li><NavLink className={({ isActive }) =>
-                            isActive ? "text-indigo-500" : ""
-                        } to="/browse-listings">Browse All Post</NavLink></li>
-                        <li><NavLink className={({ isActive }) =>
-                            isActive ? "text-indigo-500" : ""
-                        } to="/addtofind-roommate">Add Your Post</NavLink></li>
-                        <li><NavLink className={({ isActive }) =>
-                            isActive ? "text-indigo-500" : ""
-                        } to="/my-listing">Your Post & Profile</NavLink></li>
-                    </ul>
+                    {user ? (
+                        <>
+                            <ul className="menu menu-horizontal px-1">
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive ? "text-indigo-500 font-bold" : ""
+                                } to="/">Home</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive ? "text-indigo-500 font-bold" : ""
+                                } to="/browse-listings">Browse All Post</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive ? "text-indigo-500 font-bold" : ""
+                                } to="/dashboard/overview">Dashboard</NavLink></li>
+                                <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>About Us</NavLink></li>
+                                <li><NavLink to="/contact" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Contact</NavLink></li>
+                                <li><NavLink to="/support" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Support</NavLink></li>
+                            </ul>
+                        </>
+                    ) : (
+                        <>
+                            <ul className="menu menu-horizontal px-1">
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive ? "text-indigo-500 font-bold" : ""
+                                } to="/">Home</NavLink></li>
+                                <li><NavLink className={({ isActive }) =>
+                                    isActive ? "text-indigo-500 font-bold" : ""
+                                } to="/browse-listings">Browse All Post</NavLink></li>
+                                <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>About Us</NavLink></li>
+                                <li><NavLink to="/contact" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Contact</NavLink></li>
+                                <li><NavLink to="/support" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Support</NavLink></li>
+                            </ul>
+                        </>
+                    )}
+
                 </div>
 
                 <div className="navbar-end space-x-3">
@@ -138,20 +183,6 @@ const Navbar = () => {
                                     onMouseLeave={(e) => e.stopPropagation()}>
                                     <p className="font-semibold">{user.displayName || "No Name"}</p>
                                     <p className="text-xs opacity-70">{user.email || "No Email"}</p>
-                                    {/* <ul className=" hidden lg:flex my-2 space-y-1 text-xs opacity-70">
-                                        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                            isActive ? "text-indigo-500" : ""
-                                        } to="/">Home</NavLink></li>
-                                        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                            isActive ? "text-indigo-500" : ""
-                                        } to="/browse-listings">Browse All Post</NavLink></li>
-                                        <li className="lg:hidden"><NavLink className={({ isActive }) =>
-                                            isActive ? "text-indigo-500" : ""
-                                        } to="/addtofind-roommate">Add Your Post</NavLink></li>
-                                        <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                            isActive ? "text-indigo-500" : ""
-                                        } to="/my-listing">Your Post & Profile</NavLink></li>
-                                    </ul> */}
                                     <button onClick={logOut} className=" hidden lg:flex btn btn-error btn-sm w-full mt-2">
                                         Logout
                                     </button>
@@ -167,41 +198,36 @@ const Navbar = () => {
                             </div>
 
                             {/* Dropdown only on mobile (visible if logged out) */}
-                            <div className="lg:hidden dropdown dropdown-end flex justify-between gap-2">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
-                                    </svg>
-                                </div>
-                                <ul
-                                    tabIndex={0}
-                                    className="mt-12 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                                >
 
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/">Home</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/browse-listings">Browse All Post</NavLink></li>
-                                    <li className="lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/addtofind-roommate">Add Your Post</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "text-indigo-500" : ""
-                                    } to="/my-listing">Your Post & Profile</NavLink></li>
-                                    <li className=" lg:hidden"><NavLink className={({ isActive }) =>
-                                        isActive ? "bg-indigo-700 btn" : "btn btn-primary"
-                                    } to="/login">Login</NavLink></li>
-                                    <li className=" lg:hidden mt-2"><NavLink className={({ isActive }) =>
-                                        isActive ? "bg-indigo-700 btn" : "btn btn-primary"
-                                    } to="/singup">SingUp</NavLink></li>
-                                </ul>
-
-                            </div>
 
                         </>
                     )}
+                    <div className="lg:hidden dropdown dropdown-end flex justify-between gap-2">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
+                            </svg>
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="mt-12 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                        >
+                            {user ? (
+                                <>
+                                    {beforLogin}
+                                </>
+                            ) : (
+                                <>
+
+                                    {afterLogin}
+
+                                </>
+                            )}
+
+
+                        </ul>
+
+                    </div>
 
                 </div>
 

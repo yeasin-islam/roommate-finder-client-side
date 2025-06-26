@@ -1,130 +1,78 @@
 import React from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-
 import './styles.css';
-
-// import required modules
 import { Navigation } from 'swiper/modules';
 import { Link } from 'react-router';
 
-export default function App() {
-    return (
-        <>
-            <Swiper navigation={true} modules={[Navigation]} className="poppins mySwiper rounded-lg">
-                {/* 1st */}
-                <SwiperSlide className="relative h-[80vh] bg-cover bg-center bg-[url('/assets/image000.jpg')]">
-                    {/* Overlay for dark background effect */}
-                    <div className="absolute inset-0 bg-opacity-60"></div>
+export default function Hero() {
+  const slides = [
+    {
+      title: "Find the Right Roommate",
+      text: "Connect with people who match your lifestyle, budget, and vibe.",
+      bg: "/assets/image000.jpg",
+      btnText: "Explore All Post",
+      btnLink: "/browse-listings",
+    },
+    {
+      title: "List Your Room in Seconds",
+      text: "Post your spare room and let the right roommate find you.",
+      bg: "/assets/image1.jpg",
+      btnText: "Post Now",
+      btnLink: "/dashboard/addtofind-roommate",
+    },
+    {
+      title: "Join a Community that Feels Like Home",
+      text: "Because your next stay shouldn't just be four walls—it should feel right.",
+      bg: "/assets/image2.jpg",
+      btnText: "View Dashboad",
+      btnLink: "/dashboard/overview",
+    },
+    {
+      title: "Start Your Shared Living Journey Today",
+      text: "From search to settle-in, we’ve got you covered every step of the way.",
+      bg: "/assets/image3.jpg",
+      btnText: "Your Posts",
+      btnLink: "/dashboard/my-listing",
+    },
+  ];
 
-                    {/* Content */}
-                    <div className="relative flex justify-center items-center text-center my-28 mx-8 px-8 rounded-3xl bg-base-300/60">
-                        <div className="w-full text-center  space-y-6 py-9">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
-                                Find the Right Roommate,<br />Live Better Together
-                            </h5>
+  return (
+    <Swiper
+      navigation={true}
+      modules={[Navigation]}
+      className="poppins mySwiper rounded-lg"
+    >
+      {slides.map((slide, idx) => (
+        <SwiperSlide key={idx} className="relative h-[70vh]">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${slide.bg})` }}
+          ></div>
 
-                            <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-                                Easily connect with people who share your lifestyle, budget, and vibe. Start your journey to stress-free shared living today.
-                            </p>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/40 z-10"></div>
 
-                            <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                {/* 2nd */}
-                <SwiperSlide className="relative h-[80vh] bg-cover bg-center bg-[url('/assets/image1.jpg')]">
-                    {/* Overlay for dark background effect */}
-                    <div className="absolute inset-0 bg-opacity-60"></div>
-
-                    {/* Content */}
-                    <div className="relative flex justify-center items-center text-center my-28 mx-8 px-8 rounded-3xl bg-base-300/60">
-                        <div className="w-full text-center  space-y-6 py-9">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
-                                Your Perfect Living Match <br /> Is Just a Click Away
-                            </h5>
-
-                            <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-                                Whether you're moving in or moving out, we help you find reliable roommates and verified rooms — fast, easy, and stress-free.
-                            </p>
-
-                            <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                {/* 3rd */}
-                <SwiperSlide className="relative h-[80vh] bg-cover bg-center bg-[url('/assets/image2.jpg')]">
-                    {/* Overlay for dark background effect */}
-                    <div className="absolute inset-0 bg-opacity-60"></div>
-
-                    {/* Content */}
-                    <div className="relative flex justify-center items-center text-center my-28 mx-8 px-8 rounded-3xl bg-base-300/60">
-                        <div className="w-full text-center  space-y-6 py-9">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
-                                Discover Spaces That <br /> Feel Like Home
-                            </h5>
-
-                            <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-                                Explore listings tailored to your lifestyle and connect with roommates who match your vibe. Because your next home is more than just four walls.
-                            </p>
-
-                            <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                {/* 4th */}
-                <SwiperSlide className="relative h-[80vh] bg-cover bg-center bg-[url('/assets/pic3.jpg')]">
-                    {/* Overlay for dark background effect */}
-                    <div className="absolute inset-0 bg-opacity-60"></div>
-
-                    {/* Content */}
-                    <div className="relative flex justify-center items-center text-center my-28 mx-8 px-8 rounded-3xl bg-base-300/60">
-                        <div className="w-full text-center  space-y-6 py-9">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold  leading-tight">
-                                Discover Verified Posts <br /> Across the City
-                            </h5>
-                            <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-                                Browse updated, real-time room and flatmate options in your area. All listings come with verified details and clear photos.
-                            </p>
-
-                            <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                {/* 5th */}
-                <SwiperSlide className="relative h-[80vh] bg-cover bg-center bg-[url('/assets/image3.jpg')]">
-                    {/* Overlay for dark background effect */}
-                    <div className="absolute inset-0 bg-opacity-60"></div>
-
-                    {/* Content */}
-                    <div className="relative flex justify-center items-center text-center my-28 mx-8 px-8 rounded-3xl bg-base-300/60">
-                        <div className="w-full text-center  space-y-6 py-9">
-                            <h5 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-                                Post Your Room or Flatmate <br /> Requirement in Minutes
-                            </h5>
-
-                            <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto">
-                                Got a spare room or looking for a flatmate? Post your ad in under 2 minutes and connect with the right people fast.
-                            </p>
-                            <Link to="/browse-listings">
-                                <button className="btn text-2xl font-bold px-8 py-6 btn-primary">Get Start</button>
-                            </Link>
-                        </div>
-                    </div>
-                </SwiperSlide>
-            </Swiper>
-        </>
-    );
+          {/* Content */}
+          <div className="relative z-20 flex justify-center items-center text-center h-full px-4 sm:px-6">
+            <div className="bg-base-100/30 p-6 sm:p-10 rounded-3xl w-full max-w-3xl space-y-6 m-8">
+              <h2 className="text-3xl sm:text-4xl font-bold text-base-content">
+                {slide.title}
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto text-base-content">
+                {slide.text}
+              </p>
+              <Link to={slide.btnLink}>
+                <button className="btn text-base font-semibold sm:text-lg px-6 py-3 btn-primary">
+                  {slide.btnText}
+                </button>
+              </Link>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
 }

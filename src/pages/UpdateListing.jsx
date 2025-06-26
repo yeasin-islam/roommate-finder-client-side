@@ -43,7 +43,7 @@ const UpdateListing = () => {
         const updatedPost = Object.fromEntries(formData.entries());
         // console.log(updatedPost)
 
-        fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${_id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/posts/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -60,7 +60,7 @@ const UpdateListing = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    navigate("/my-listing");
+                    navigate("/dashboard/my-listing");
                 }
                 else {
                     Swal.fire({

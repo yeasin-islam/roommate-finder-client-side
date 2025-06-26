@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Tooltip } from 'react-tooltip';
 
-const FeaturedCard = ({ post }) => {
-  const { _id, title, location, rentAmount, photo, availability } = post;
+const AllPostCard = ({ post }) => {
+  const { _id, title, location, rentAmount, photo, availability, createdAt } = post;
 
   return (
-    <div className="card bg-base-300 shadow hover:shadow-md transition-all duration-300 rounded-xl h-full flex flex-col justify-between">
-      {/* Image */}
+    <div className="card bg-base-300 shadow hover:shadow-md rounded-xl h-full flex flex-col justify-between">
+      {/* Image Section */}
       <div className="px-4 pt-4">
-        <div className="flex justify-center h-48 overflow-hidden rounded-xl group">
+        <div className="h-48 overflow-hidden rounded-xl group">
           <img
             src={photo}
             alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
       </div>
@@ -31,11 +31,12 @@ const FeaturedCard = ({ post }) => {
               </span>
             </p>
             <p><strong>Rent:</strong> {rentAmount} ৳</p>
+            <p><strong>Posted:</strong> {new Date(createdAt).toLocaleDateString()}</p>
           </div>
         </div>
 
         {/* Button + Tooltip */}
-        <div className="card-actions  justify-end mt-auto">
+        <div className="card-actions justify-end mt-auto">
           <Link to={`/details/${_id}`}>
             <button
               id={`tooltip-${_id}`}
@@ -59,4 +60,4 @@ const FeaturedCard = ({ post }) => {
   );
 };
 
-export default FeaturedCard;
+export default AllPostCard;

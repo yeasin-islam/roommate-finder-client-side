@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import LoadingFallback from '../components/shared/LoadingFallback';
+import { AuthContext } from '../../context/AuthContext';
+import LoadingFallback from '../../components/shared/LoadingFallback';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
-import Profile from './Profile';
+import Profile from '../Profile';
 import { Helmet } from 'react-helmet-async';
 
 const MyListing = () => {
@@ -13,7 +13,7 @@ const MyListing = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://batch11-assignment-10-server-side.vercel.app/my-posts?email=${user.email}`)
+            fetch(`${import.meta.env.VITE_API_URL}/my-posts?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyPosts(data);
@@ -47,7 +47,7 @@ const MyListing = () => {
             // console.log(result.isConfirmed)
             if (result.isConfirmed) {
 
-                fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${_id}`, {
+                fetch(`${import.meta.env.VITE_API_URL}/posts/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -74,7 +74,6 @@ const MyListing = () => {
                 </title>
             </Helmet>
             <div className="text-center mb-8">
-                <Profile></Profile>
                 <h2 className="text-3xl md:text-5xl font-bold mb-2">Your Posts</h2>
                 <p className="text-sm md:text-base">
                     All your poste in one place. Update or delete anytime with ease.
@@ -108,29 +107,27 @@ const MyListing = () => {
                                 </td>
                                 <td>{post.title}</td>
                                 <td>{post.location}</td>
-                                <td>{post.rentAmount} Taka</td>
+                                <td>{post.rentAmount} ৳</td>
                                 <td>
                                     <span className={`font-semibold ${post.availability === 'Available' ? 'text-green-600' : 'text-red-500'}`}>
                                         {post.availability}
                                     </span>
                                 </td>
-                                <td>
-                                    <div className="md:flex items-center gap-2 justify-center">
+                                <td className="py-2 px-4">
+                                    <div className="flex flex-wrap justify-center gap-2">
                                         <Link to={`/details/${post._id}`}>
-                                            <button
-                                                className="btn btn-xs md:btn-sm btn-outline mb-2 "
-                                            >
-                                                Details
-                                            </button>
+                                            <button className="btn btn-xs btn-outline hover:btn-info" title="View Details">Details</button>
                                         </Link>
                                         <Link to={`/update-my-listing/${post._id}`}>
-                                            <button className="mb-2 md:mb-0 btn btn-xs md:btn-sm btn-outline">Update</button>
+                                            <button className="btn btn-xs btn-outline hover:btn-warning" title="Edit Post">Update</button>
                                         </Link>
-                                        <button onClick={() => handleDelete(post._id)} className="btn btn-xs md:btn-sm btn-outline btn-error">Delete</button>
-
-
-
-
+                                        <button
+                                            onClick={() => handleDelete(post._id)}
+                                            className="btn btn-xs btn-outline btn-error hover:bg-error "
+                                            title="Delete Post"
+                                        >
+                                            Delete
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

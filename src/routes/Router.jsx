@@ -6,11 +6,20 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import LoadingFallback from "../components/shared/LoadingFallback";
 import SingUp from "../pages/SingUp";
-import AddToFindRoommate from "../pages/AddToFindRoommate";
 import BrowseListing from "../pages/BrowseListing";
-import MyListing from "../pages/MyListing";
 import UpdateListing from "../pages/UpdateListing";
 import DetailsPage from "../pages/DetailsPage";
+import TermsOfUse from "../pages/TermsOfUse";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import CookiePolicy from "../pages/CookiePolicy";
+import AboutUs from "../pages/AboutUs";
+import Contact from "../pages/Contact";
+import Support from "../pages/Support";
+import Dashboard from "../pages/Dashboard";
+import MyListing from "../pages/Dashboard/MyListing";
+import AddToFindRoommate from "../pages/Dashboard/AddToFindRoommate";
+import AllPost from "../pages/Dashboard/AllPost";
+import Overview from "../pages/Dashboard/Overview";
 
 
 const Router = createBrowserRouter([
@@ -23,7 +32,7 @@ const Router = createBrowserRouter([
                 index: true,
                 path: '/',
                 Component: Home,
-                loader: () => fetch('https://batch11-assignment-10-server-side.vercel.app/featured-posts'),
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/featured-posts`),
                 hydrateFallbackElement: <LoadingFallback />,
             },
             {
@@ -36,29 +45,72 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/browse-listings',
-                loader: () => fetch('https://batch11-assignment-10-server-side.vercel.app/posts'),
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/posts`),
                 element: <BrowseListing />,
                 hydrateFallbackElement: <LoadingFallback />,
             },
             {
-                path: '/addtofind-roommate',
-                element: <PrivateRoute><AddToFindRoommate /></PrivateRoute>,
-                // loader: () => fetch('../events.json'),
-                hydrateFallbackElement: <LoadingFallback />,
-            },
-            {
-                path: '/my-listing',
-                element: <PrivateRoute><MyListing /></PrivateRoute>,
-            },
-            {
                 path: '/update-my-listing/:id',
-                loader: ({ params }) => fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${params.id}`),
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/posts/${params.id}`),
                 element: <PrivateRoute><UpdateListing /></PrivateRoute>,
             },
             {
                 path: '/details/:id',
-                loader: ({ params }) => fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${params.id}`),
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/posts/${params.id}`),
                 element: <PrivateRoute><DetailsPage /></PrivateRoute>,
+            },
+            {
+                path: "/terms",
+                element: <TermsOfUse />,
+            },
+            {
+                path: "/privacy",
+                element: <PrivacyPolicy />,
+            },
+            {
+                path: "/cookies",
+                element: <CookiePolicy />,
+            },
+            {
+                path: "/about-us",
+                element: <AboutUs />,
+            },
+            {
+                path: "/contact",
+                element: <Contact />,
+            },
+            {
+                path: "/support",
+                element: <Support />,
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard />,
+                children: [
+                    {
+                        path: 'overview',
+                        element: <PrivateRoute><Overview /></PrivateRoute>,
+                    },
+                    {
+                        path: 'all-post',
+                        element: <PrivateRoute><AllPost /></PrivateRoute>,
+                        loader: () => fetch(`${import.meta.env.VITE_API_URL}/posts`),
+                    },
+                    {
+                        path: 'addtofind-roommate',
+                        element: <PrivateRoute><AddToFindRoommate /></PrivateRoute>,
+                        // loader: () => fetch('../events.json'),
+                        hydrateFallbackElement: <LoadingFallback />,
+                    },
+                    {
+                        path: 'my-listing',
+                        element: <PrivateRoute><MyListing /></PrivateRoute>,
+                    },
+                    //     {
+                    //         path: 'my-applications',
+                    //         element: <PrivateRoute><MyApplyList /></PrivateRoute>
+                    //     },
+                ]
             },
 
         ]

@@ -14,6 +14,7 @@ const DetailsPage = () => {
         contactNumber,
         availability,
         lifestyle,
+        createdAt,
         likeCount,
         name,
         email,
@@ -29,7 +30,7 @@ const DetailsPage = () => {
         const updatedPost = Object.fromEntries(formData.entries());
         console.log(updatedPost)
 
-        fetch(`https://batch11-assignment-10-server-side.vercel.app/posts/${_id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/posts/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -78,7 +79,8 @@ const DetailsPage = () => {
                     </div>
                 </div>
                 <p className=""><span className="text-lg font-bold">Availablity: </span> {availability}</p>
-                <div> <span className="font-bold">Rent: </span>{rentAmount} Taka</div>
+                <p> <span className="font-bold">Rent: </span>{rentAmount} ৳</p>
+                <p> <span className="font-bold">Created At: </span>{createdAt}</p>
             </div>
 
             {/* like btn */}

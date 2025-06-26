@@ -7,6 +7,10 @@ import { HelmetProvider } from 'react-helmet-async'
 // import CartProvider from './providers/CartProvider.jsx'
 import { Toaster } from 'react-hot-toast'
 import Router from './routes/Router.jsx'
+import 'aos/dist/aos.css';
+import Aos from 'aos';
+
+Aos.init();
 
 createRoot(document.getElementById('root')).render(
   <HelmetProvider>

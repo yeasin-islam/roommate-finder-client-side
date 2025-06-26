@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase.config';
+import { auth } from '../../firebase.config';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 import { Helmet } from 'react-helmet-async';
@@ -45,10 +45,11 @@ const AddToFindRoommate = () => {
                 form.smoking.checked && 'Smoking',
                 form.night.checked && 'Night Owl'
             ].filter(Boolean),
+            createdAt: new Date().toISOString().split('T')[0],
         };
         // console.log('Form Submission:', addToFindPost);
 
-        fetch('https://batch11-assignment-10-server-side.vercel.app/posts', {
+        fetch(`${import.meta.env.VITE_API_URL}/posts`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -67,7 +68,7 @@ const AddToFindRoommate = () => {
                         confirmButtonText: 'OK',
                     }).then(() => {
                         // form.reset();
-                        navigate('/my-listing');
+                        navigate('/dashboard/my-listing');
                     })
                 }
             })
@@ -142,7 +143,7 @@ const AddToFindRoommate = () => {
 
                     <div>
                         <legend className="fieldset-legend mb-1">Image</legend>
-                        <input type="text" name="photo" className="input input-bordered w-full" placeholder="Add a photo URL" required />
+                        <input type="url" name="photo" className="input input-bordered w-full" placeholder="Add a photo URL" required />
                     </div>
                     <div>
                         <legend className="fieldset-legend mb-1">Contact Number</legend>
