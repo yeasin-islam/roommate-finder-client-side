@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { auth } from "../firebase.config.js";
 import { AuthContext } from "./AuthContext";
+import Swal from "sweetalert2";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -58,9 +59,37 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setIsLoading(false);
-    return signOut(auth);
-  };
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You will be logged out.",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, log out",
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      setIsLoading(true);
+      try {
+        await signOut(auth);
+        Swal.fire({
+          icon: "success",
+          title: "Logged out!",
+          text: "You have been successfully logged out.",
+          timer: 1500,
+          showConfirmButton: false,
+          timerProgressBar: true,
+        });
+      } catch (error) {
+        console.error("Logout error:", error);
+        Swal.fire("Error", "Failed to log out.", "error");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  });
+};
+
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {

@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const { user } = useContext(AuthContext);
@@ -74,6 +75,11 @@ const Contact = () => {
 
   return (
     <section className="p-4">
+      <Helmet>
+        <title>
+          Contact | Find HomeMates
+        </title>
+      </Helmet>
       <div className="poppins m-8 rounded-xl px-4 md:px-16 py-10 max-w-4xl mx-auto bg-base-300 text-base-content">
         <h1 className="text-4xl font-bold mb-8 text-center">Get in Touch</h1>
         <p className="text-center max-w-xl mx-auto mb-10 text-lg opacity-80">

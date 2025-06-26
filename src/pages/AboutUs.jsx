@@ -1,8 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const AboutUs = () => {
     return (
         <div className="poppins px-4 md:px-16 py-10 space-y-10 text-base-content">
+            <Helmet>
+                <title>
+                    About US | Find HomeMates
+                </title>
+            </Helmet>
             <section className="text-center">
                 <h1 className="text-4xl font-bold mb-4">Who We Are</h1>
                 <p className="max-w-3xl mx-auto text-lg">
@@ -43,7 +49,7 @@ const AboutUs = () => {
                 <h2 className="text-2xl md:text-4xl font-semibold text-center mb-6">Meet the Team</h2>
 
                 {/* Founder Card - Large & Featured */}
-                <div className="flex justify-center mb-12">
+                <div data-aos="zoom-in" data-aos-delay={200} className="flex justify-center mb-12">
                     <div className="bg-base-200 rounded-2xl p-8 shadow-xl max-w-xl w-full text-center hover:scale-105 transition-all">
                         <img
                             src="/assets/Yeasin.jpg"
@@ -80,7 +86,7 @@ const AboutUs = () => {
                             desc: "Designs intuitive layouts and ensures a consistent and clean user experience across devices.",
                         },
                     ].map((member, idx) => (
-                        <div
+                        <div data-aos="fade-up" data-aos-delay={idx * 200}
                             key={idx}
                             className="bg-base-200 rounded-xl p-6 shadow hover:scale-105 transition-all"
                         >

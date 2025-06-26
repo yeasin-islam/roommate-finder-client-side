@@ -70,7 +70,7 @@ const MyListing = () => {
         <div className="container mx-auto px-4 py-10">
             <Helmet>
                 <title>
-                    Your Post & Profile | Find RoomMates
+                    Your Post | Find RoomMates
                 </title>
             </Helmet>
             <div className="text-center mb-8">

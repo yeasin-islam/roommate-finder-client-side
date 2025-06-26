@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { FaGoogle, FaGithub, FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import LottieAnimation from ".././assets/lotties/login.json";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -26,7 +28,7 @@ const Login = () => {
           icon: "success",
           title: "Login Succesfuly",
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         navigate(from);
       })
@@ -35,7 +37,7 @@ const Login = () => {
           icon: "error",
           title: `${err.message}`,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
       });
   };
@@ -47,7 +49,7 @@ const Login = () => {
           icon: "success",
           title: "Login with Google!",
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         navigate(from);
       })
@@ -56,78 +58,86 @@ const Login = () => {
           icon: "error",
           title: `${err.message}`,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
       });
   };
 
   return (
-    <div className=" popins bg-base-200 p-10 rounded-xl shadow-2xl flex items-center justify-center">
+    <section className="fontJakarta bg-base-200">
       <Helmet>
         <title>
-          Login | Find RoomMates
+          Login | Find Roommates
         </title>
       </Helmet>
-      <div className="w-full max-w-sm">
-        <div className="card bg-base-100 shadow-2xl">
-          <h1 className="text-2xl font-bold text-center mt-5">Login</h1>
-          <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <label className="label">Email</label>
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                className="input input-bordered w-full"
-                placeholder="Email"
-                required
-              />
+      <div className="container mx-auto">
+        <div className="flex items-center justify-center py-10 popins  rounded-xl">
+          <div data-aos="fade-up" data-aos-delay={200}
+            className="gap-16 flex flex-col md:flex md:flex-row  items-center py-6 px-4 mx-4 lg:p-10 lg:px-20 rounded-2xl shadow-xl bg-base-300  ">
+            <Lottie data-aos="fade-right" data-aos-delay={300} style={{ width: '300px' }} animationData={LottieAnimation} loop={true} />
+            <div data-aos="fade-left" data-aos-delay={300} className="w-full max-w-sm">
+              <div className=" shadow-2xl card bg-base-100 mx-6 mb-4 lg:mb-0 lg:mx-0">
+                <h1 className="poppins p-5 rounded-t-md text-3xl font-bold text-center">Log In</h1>
+                <div className="card-body">
+                  <form onSubmit={handleSubmit}>
+                    <label className="label">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      onChange={handleChange}
+                      className="w-full input input-bordered"
+                      placeholder="Email"
+                      required
+                    />
 
-              <label className="label mt-2">Password</label>
-              <div className="relative flex items-center">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  onChange={handleChange}
-                  className="input input-bordered w-full pr-10"
-                  placeholder="Password"
-                  required
-                />
-                <span
-                  className="absolute right-3 cursor-pointer text-lg text-gray-500"
-                  onClick={() => setShowPassword(prev => !prev)}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
+                    <label className="mt-2 label">Password</label>
+                    <div className="relative flex items-center">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        onChange={handleChange}
+                        className="w-full pr-10 input input-bordered"
+                        placeholder="Password"
+                        required
+                      />
+                      <span
+                        className="absolute text-lg text-gray-500 cursor-pointer right-3"
+                        onClick={() => setShowPassword(prev => !prev)}
+                      >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+                    </div>
+
+                    <div className="mt-1 text-right">
+                      <Link to="/forgot-password" className="text-sm text-blue-500 hover:underline">
+                        Forgot Password?
+                      </Link>
+                    </div>
+
+                    <button type="submit" className="w-full mt-4 btn btn-neutral">
+                      Log In
+                    </button>
+                  </form>
+
+                  <div className="divider">OR</div>
+
+                  <button onClick={handleGoogleLogin} className="w-full mb-2 btn">
+                    <FaGoogle /> <span>Sing In with Google</span>
+                  </button>
+
+                  <div className="mt-4 text-center">
+                    Not Sign Up?{" "}
+                    <Link className="text-blue-600 underline" to="/signup">
+                      Sign Up
+                    </Link>
+                  </div>
+                </div>
               </div>
-
-              <div className="text-right mt-1">
-                <Link to="/reset-password" className="text-sm text-blue-500 hover:underline">
-                  Forgot Password?
-                </Link>
-              </div>
-
-              <button type="submit" className="btn btn-neutral mt-4 w-full">
-                Login
-              </button>
-            </form>
-
-            <div className="divider">OR</div>
-
-            <button onClick={handleGoogleLogin} className="btn w-full mb-2">
-              <FaGoogle /> <span>Sign in with Google</span>
-            </button>
-
-            <div className="text-center mt-4">
-              Not SingUp?{" "}
-              <Link className="underline text-blue-600" to="/singup">
-                SingUp
-              </Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

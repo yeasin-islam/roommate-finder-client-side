@@ -48,16 +48,16 @@ export default function Hero() {
         <SwiperSlide key={idx} className="relative h-[70vh]">
           {/* Background Image */}
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover h-96 bg-center"
             style={{ backgroundImage: `url(${slide.bg})` }}
           ></div>
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40 z-10"></div>
+          <div className="absolute inset-0"></div>
 
           {/* Content */}
           <div className="relative z-20 flex justify-center items-center text-center h-full px-4 sm:px-6">
-            <div className="bg-base-100/30 p-6 sm:p-10 rounded-3xl w-full max-w-3xl space-y-6 m-8">
+            <div className="bg-base-100/40 p-6 sm:p-10 rounded-3xl w-full max-w-3xl space-y-6 m-8">
               <h2 className="text-3xl sm:text-4xl font-bold text-base-content">
                 {slide.title}
               </h2>

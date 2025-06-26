@@ -5,7 +5,7 @@ import Login from "../pages/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import LoadingFallback from "../components/shared/LoadingFallback";
-import SingUp from "../pages/SingUp";
+import SignUp from "../pages/SignUp";
 import BrowseListing from "../pages/BrowseListing";
 import UpdateListing from "../pages/UpdateListing";
 import DetailsPage from "../pages/DetailsPage";
@@ -20,6 +20,7 @@ import MyListing from "../pages/Dashboard/MyListing";
 import AddToFindRoommate from "../pages/Dashboard/AddToFindRoommate";
 import AllPost from "../pages/Dashboard/AllPost";
 import Overview from "../pages/Dashboard/Overview";
+import ForgotPassword from "../pages/ForgotPassword";
 
 
 const Router = createBrowserRouter([
@@ -40,8 +41,8 @@ const Router = createBrowserRouter([
                 element: <Login />,
             },
             {
-                path: '/singup',
-                element: <SingUp />,
+                path: '/signup',
+                element: <SignUp />,
             },
             {
                 path: '/browse-listings',
@@ -84,6 +85,10 @@ const Router = createBrowserRouter([
                 element: <Support />,
             },
             {
+                path: "/forgot-password",
+                element: <ForgotPassword />
+            },
+            {
                 path: '/dashboard',
                 element: <Dashboard />,
                 children: [
@@ -106,10 +111,6 @@ const Router = createBrowserRouter([
                         path: 'my-listing',
                         element: <PrivateRoute><MyListing /></PrivateRoute>,
                     },
-                    //     {
-                    //         path: 'my-applications',
-                    //         element: <PrivateRoute><MyApplyList /></PrivateRoute>
-                    //     },
                 ]
             },
 

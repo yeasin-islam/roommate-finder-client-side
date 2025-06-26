@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Support = () => {
   const { user } = useContext(AuthContext);
@@ -16,27 +17,11 @@ const Support = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!user) {
-      Swal.fire({
-        title: "Login Required",
-        text: "You need to be logged in to submit a support request.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Login Now",
-        cancelButtonText: "Cancel",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/login");
-        }
-      });
-      return;
-    }
-
     const supportData = {
       issueType,
       description,
-      email: user.email,
-      name: user.displayName,
+      email: user?.email || "Anonymous",
+      name: user?.displayName || "Guest User",
       date: new Date(),
     };
 
@@ -52,9 +37,8 @@ const Support = () => {
           timer: 2000,
           showConfirmButton: false,
         }).then(() => {
-        // Navigate to home after success
-        navigate("/");
-      });
+          navigate("/");
+        });
         setIssueType("");
         setDescription("");
       }
@@ -70,6 +54,11 @@ const Support = () => {
 
   return (
     <section className="m-4">
+      <Helmet>
+        <title>
+          Support | Find HomeMates
+        </title>
+      </Helmet>
       <div className="poppins px-4 md:px-16 py-10 max-w-3xl mx-auto m-8 rounded-xl bg-base-300 text-base-content">
         <h1 className="text-4xl font-bold mb-8 text-center">Need Support?</h1>
 

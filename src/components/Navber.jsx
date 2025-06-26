@@ -63,7 +63,7 @@ const Navbar = () => {
         <li><NavLink to="/support" className={({ isActive }) => isActive ? "text-indigo-500 font-bold" : ""}>Support</NavLink></li>
 
         <button onClick={logOut} className=" btn btn-error btn-sm w-full mt-2">
-            Logout
+            Log Out
         </button>
     </>
 
@@ -80,10 +80,10 @@ const Navbar = () => {
 
         <li className=" lg:hidden"><NavLink className={({ isActive }) =>
             isActive ? "bg-indigo-700 btn" : "btn btn-primary"
-        } to="/login">Login</NavLink></li>
+        } to="/login">Log In</NavLink></li>
         <li className=" lg:hidden mt-2"><NavLink className={({ isActive }) =>
             isActive ? "bg-indigo-700 btn" : "btn btn-primary"
-        } to="/singup">SingUp</NavLink></li>
+        } to="/signup">Sign Up</NavLink></li>
     </>
 
 
@@ -184,7 +184,7 @@ const Navbar = () => {
                                     <p className="font-semibold">{user.displayName || "No Name"}</p>
                                     <p className="text-xs opacity-70">{user.email || "No Email"}</p>
                                     <button onClick={logOut} className=" hidden lg:flex btn btn-error btn-sm w-full mt-2">
-                                        Logout
+                                        Log Out
                                     </button>
                                 </div>
                             </div>
@@ -193,8 +193,8 @@ const Navbar = () => {
                         <>
                             {/* Login/Register for all screens */}
                             <div className="space-x-2 hidden lg:flex">
-                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-700 btn" : "btn btn-primary"} to="/login">Login</NavLink>
-                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-700 btn" : "btn btn-primary"} to="/singup">SingUp</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-700 btn" : "btn btn-primary"} to="/login">Log In</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? "bg-indigo-700 btn" : "btn btn-primary"} to="/signup">SignUp</NavLink>
                             </div>
 
                             {/* Dropdown only on mobile (visible if logged out) */}

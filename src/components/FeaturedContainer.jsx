@@ -27,7 +27,7 @@ const FeaturedContainer = ({ posts }) => {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10'>
           {featurPosts.map((post, index) => (
-            <div key={post._id} data-aos="fade-up" data-aos-delay={index * 100}>
+            <div key={post._id} data-aos="fade-up" data-aos-delay={index * 200}>
               <FeaturedCard post={post} />
             </div>
           ))}

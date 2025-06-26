@@ -51,12 +51,12 @@ const Overview = () => {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <div className="bg-primary text-white rounded-xl p-6 shadow hover:scale-[1.02] transition-transform">
-          <h4 className="text-lg font-semibold mb-1">Total Listings</h4>
+          <h4 className="text-lg font-semibold mb-1">Total Posts</h4>
           <p className="text-4xl font-bold">{totalItems}</p>
         </div>
 
         <div className="bg-secondary text-white rounded-xl p-6 shadow hover:scale-[1.02] transition-transform">
-          <h4 className="text-lg font-semibold mb-1">My Listings</h4>
+          <h4 className="text-lg font-semibold mb-1">My Posts</h4>
           <p className="text-4xl font-bold">{myItems}</p>
         </div>
 
