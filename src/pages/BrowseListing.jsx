@@ -6,7 +6,7 @@ import AllPostCard from '../components/AllPostCard';
 const BrowseListing = () => {
   const posts = useLoaderData();
 
-  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' or 'desc'
+  const [sortOrder, setSortOrder] = useState('desc'); // 'asc' or 'desc'
   const [filterRoomType, setFilterRoomType] = useState('all'); // 'Single', 'Shared', or 'all'
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -75,8 +75,8 @@ const BrowseListing = () => {
           onChange={(e) => setSortOrder(e.target.value)}
           className="select select-bordered w-full sm:w-auto"
         >
-          <option value="asc">Oldest First</option>
           <option value="desc">Newest First</option>
+          <option value="asc">Oldest First</option>
         </select>
 
         {/* Filter */}

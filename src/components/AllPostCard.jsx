@@ -5,6 +5,10 @@ import { Tooltip } from 'react-tooltip';
 const AllPostCard = ({ post }) => {
   const { _id, title, location, rentAmount, photo, availability, createdAt } = post;
 
+  // Check if createdAt is a valid date
+  const date = createdAt ? new Date(createdAt) : null;
+  const isValidDate = date instanceof Date && !isNaN(date);
+
   return (
     <div className="card bg-base-300 shadow hover:shadow-md rounded-xl h-full flex flex-col justify-between">
       {/* Image Section */}
@@ -31,7 +35,7 @@ const AllPostCard = ({ post }) => {
               </span>
             </p>
             <p><strong>Rent:</strong> {rentAmount} ৳</p>
-            <p><strong>Posted:</strong> {new Date(createdAt).toLocaleDateString()}</p>
+            <p><strong>Posted:</strong> {isValidDate ? date.toLocaleDateString() : 'Date not available'}</p>
           </div>
         </div>
 

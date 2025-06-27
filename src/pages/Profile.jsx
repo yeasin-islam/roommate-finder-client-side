@@ -23,17 +23,15 @@ const Profile = () => {
           <h3 className="text-xl md:text-3xl font-semibold mb-4 text-center">Logged-in User</h3>
         <div className="flex flex-col md:flex-row items-center gap-4 lg:gap-12">
           {/* Profile image or fallback */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 w-32 h-32 rounded-full ring ring-primary ring-offset-2">
             {user?.photoURL ? (
               <img
                 src={user.photoURL}
                 alt="User Profile"
-                className="w-32 h-32 rounded-full ring ring-primary ring-offset-2 object-cover"
+                className="w-full h-full object-cover"
               />
             ) : (
-              <div className="w-32 h-32 flex items-center justify-center rounded-full bg-gray-300 ring ring-primary ring-offset-2">
-                <FaUserCircle className="text-6xl text-white" />
-              </div>
+                <FaUserCircle className="w-full h-full text-6xl text-white" />  
             )}
           </div>
 

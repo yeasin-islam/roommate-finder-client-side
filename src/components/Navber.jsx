@@ -169,11 +169,16 @@ const Navbar = () => {
                                 {/* Avatar and trigger */}
                                 <div className="flex items-center gap-2 cursor-pointer">
                                     <div className="w-10 h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
-                                        <img
+                                        {user?.photoURL ? (
+                                            <img
                                             src={user.photoURL || "/default-avatar.png"}
                                             alt="User"
                                             className="w-full h-full object-cover"
                                         />
+                                        ) : (
+                                                <FaUserCircle className="w-full h-full object-cover text-6xl text-white" />
+                                           
+                                        )}
                                     </div>
                                 </div>
 
