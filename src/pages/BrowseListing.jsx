@@ -58,38 +58,41 @@ const BrowseListing = () => {
         </p>
       </div>
 
-      {/* Filter + Sort + Search */}
-      <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-end items-center  mb-8">
-        {/* Search */}
-        <input
-          type="text"
-          placeholder="Search by title or location..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="input input-bordered flex-1 w-full max-w-sm"
-        />
+      <div className="w-full mb-8">
+  <div className="flex flex-col sm:flex-row sm:justify-end sm:items-center gap-4 w-full sm:w-auto ml-auto">
+    {/* Search */}
+    <input
+      type="text"
+      placeholder="Search by title or location..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className="input input-bordered w-full sm:max-w-xs"
+    />
 
-        {/* Sort */}
-        <select
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value)}
-          className="select select-bordered w-full sm:w-auto"
-        >
-          <option value="desc">Newest First</option>
-          <option value="asc">Oldest First</option>
-        </select>
+    {/* Sort */}
+    <select
+      value={sortOrder}
+      onChange={(e) => setSortOrder(e.target.value)}
+      className="select select-bordered w-full sm:w-auto"
+    >
+      <option value="desc">Newest First</option>
+      <option value="asc">Oldest First</option>
+    </select>
 
-        {/* Filter */}
-        <select
-          value={filterRoomType}
-          onChange={(e) => setFilterRoomType(e.target.value)}
-          className="select select-bordered w-full sm:w-auto"
-        >
-          <option value="all">All Types</option>
-          <option value="Single">Single</option>
-          <option value="Shared">Shared</option>
-        </select>
-      </div>
+    {/* Filter */}
+    <select
+      value={filterRoomType}
+      onChange={(e) => setFilterRoomType(e.target.value)}
+      className="select select-bordered w-full sm:w-auto"
+    >
+      <option value="all">All Types</option>
+      <option value="Single">Single</option>
+      <option value="Shared">Shared</option>
+    </select>
+  </div>
+</div>
+
+
 
       {/* Posts Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
